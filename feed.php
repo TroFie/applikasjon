@@ -14,7 +14,7 @@
         exit();
       } else {
         mysqli_stmt_execute($stmt);
-        header("Location: /php/feed.php");
+        header("Location: /appOblig/feed.php");
 				exit();
       }
     }
@@ -37,15 +37,15 @@
 <header>
     <div class="container">
         <div id="branding">
-          <h1>Fucking faggot forum</h1>
+          <h1>Forum Placeholder</h1>
         </div></div>
      
       <nav class="container">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
-              <li><a href=kontakt.html> Kontakt    </a></li> 
-              <li><a href=bruker.html>  Bruker     </a></li> 
-              <li><a href=FAQ.html>     FAQ        </a></li>
+              <li><a href=#>            Kontakt    </a></li> 
+              <li><a href=#>            Bruker     </a></li> 
+              <li><a href=#>            FAQ        </a></li>
           </ul>
       </nav>
   </header>
@@ -99,7 +99,7 @@
       while($rows=mysqli_fetch_array($getQuery)) {
         echo "<div class=\"post-date\">31/03-2019</div>";
         echo "<div class=\"post\">";
-        echo "<div class=\"post-user\">" . $_SESSION['userUid']; 
+        echo "<div class=\"post-user\">Bruker"; 
 
         $id = $rows['id'];
         $tittel = $rows['tittel'];
