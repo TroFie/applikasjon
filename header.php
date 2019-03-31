@@ -19,7 +19,7 @@
 	 	
 	 	 <nav>
 	 		 <ul>
-	 		 	<li><a href="index.html">Home</a></li>
+	 		 	<li><a href="feed.php">Home</a></li>
 	 		 	<li><a href="#">Portfolio</a></li>
 	 		 	<li><a href="#">About us</a></li>
 	 		 	<li><a href="#">Contact</a></li>
