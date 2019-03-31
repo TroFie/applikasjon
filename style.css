@@ -10,7 +10,6 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-font-smoothing:antialiased;
 	-o-font-smoothing:antialiased;
-	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
 
@@ -85,7 +84,7 @@ form {
 	padding: 0;
 	margin-top: 40px;
 	margin-left: 20px;
-	color-background:pink;
+	background-color:pink;
 }
 
 .wrapper-main{
@@ -178,7 +177,7 @@ font-size:16px;
 	border: none;
 	cursor: pointer;
 	width: 90%;
-font-size:20px;
+	font-size:20px;
 }
 button:hover {
 	opacity: 0.8;
@@ -197,15 +196,14 @@ height:200px;
 }
 */
 .modal {
-display:none;
+	display: none;
 	position: fixed;
 	z-index: 1;
-	left: 0;
-	top: 0;
+	left: 30%;
+	top: 10%;
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
@@ -213,7 +211,7 @@ display:none;
 	margin: 4% auto 15% auto;
 	border: 1px solid #888;
 	width: 40%; 
-padding-bottom: 30px;
+	padding-bottom: 30px;
 }
 
 .close {
