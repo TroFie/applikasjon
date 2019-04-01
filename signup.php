@@ -31,7 +31,7 @@
 				echo "<p>Signup successfull..</p>";
 			}
 		?>
-		<form action="includes/signup.inc.php" method="post">
+		<form class="formHeader" action="includes/signup.inc.php" method="post">
 		 <input type="text" name="uid" value="Username">
 		 <input type="mail" name="mail" value="E-mail">
 		 <input type="password" name="pwd" value="Password">

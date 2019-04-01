@@ -51,7 +51,7 @@
   </header>
 
 
-       <!-- <a class="newpost" href="/php/status.php">Lag ny Status</a> -->
+      
       <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px; margin-top: 200px; margin-left: 190px;">Lag Ny Status</button>
       
       <div id="modal-wrapper" class="modal">
@@ -65,12 +65,12 @@
 
           <div class="container">
           
-            <td>Tittel: </td><td><input type="text" placeholder="Tittel" name="tittel"></td>
+            <td>Tittel: </td><td><input class="feedText" type="text" placeholder="Tittel" name="tittel"></td>
           </div>
 
           <div class="container">
             <td>Statusmelding: </td>
-            <textarea style="resize: none;" placeholder="Skriv en ny status" name="melding"></textarea>      
+            <textarea class="feedTextArea" style="resize: none;" placeholder="Skriv en ny status" name="melding"></textarea>      
             <input class="statusbutton" type="submit" name="publiser" value="Publiser" style="width:200px;">    
           </div>
         
@@ -99,7 +99,7 @@
       while($rows=mysqli_fetch_array($getQuery)) {
         echo "<div class=\"post-date\">31/03-2019</div>";
         echo "<div class=\"post\">";
-        echo "<div class=\"post-user\">Bruker"; 
+        echo "<div class=\"post-user\">"; 
 
         $id = $rows['id'];
         $tittel = $rows['tittel'];

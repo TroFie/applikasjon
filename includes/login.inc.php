@@ -51,6 +51,6 @@ if (isset($_POST['login-submit'])) {
 
 }
 else {
-	header("Location: ../index.html");
+	header("Location: ./feed.php");
 	exit();
 }
