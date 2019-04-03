@@ -33,7 +33,7 @@ if (isset($_POST['login-submit'])) {
 					$_SESSION['userId'] = $row['idUsers'];
 					$_SESSION['userUid'] = $row['uidUsers'];
 
-					header("Location: /php/feed.php");
+					header("Location: /appOblig/feed.php");
 					exit();
 				}
 				else {
