@@ -19,7 +19,7 @@ require 'connect.php';
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
               <li><a href=#>            Kontakt    </a></li> 
-              <li><a href=#>            Bruker     </a></li> 
+              <li><a href=minSide.php>   Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
           </ul>
       </nav>
@@ -30,7 +30,8 @@ require 'connect.php';
 <?php
 require 'connect.php';
 session_start();
-$result = mysqli_query($conn, "SELECT * FROM users where idUsers='30'");
+$uid = (isset($_GET['uid'])) ? $_GET['uid'] : $_SESSION['uid'];
+$result = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$uid'");
 while($row = mysqli_fetch_array($result)) {
 $uid=$row['uidUsers'];
 $email=$row['emailUsers'];
