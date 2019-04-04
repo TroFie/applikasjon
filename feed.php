@@ -6,15 +6,16 @@
 
     $tittel = $_POST['tittel'];
     $melding = $_POST['melding'];
+    $username = $_SESSION['userUid'];
     
     if($tittel && $melding ) {
-      $sql = "INSERT INTO melding (tittel, melding) VALUES ('$tittel', '$melding')";
+      $sql = "INSERT INTO melding (tittel, melding, uidUsers) VALUES ('$tittel', '$melding', '$username')";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)) {
         exit();
       } else {
         mysqli_stmt_execute($stmt);
-        header("Location: /appOblig/feed.php");
+        header("Location: /applikasjon/feed.php");
 				exit();
       }
     }
@@ -97,15 +98,16 @@
       $getQuery = mysqli_query($conn, "SELECT * FROM melding ORDER BY id DESC");
 
       while($rows=mysqli_fetch_array($getQuery)) {
-        echo "<div class=\"post-date\">31/03-2019</div>";
-        echo "<div class=\"post\">";
-        echo "<div class=\"post-user\">"; 
-
         $id = $rows['id'];
         $tittel = $rows['tittel'];
         $melding = $rows['melding'];
-        
-        echo '<br/>' . $tittel . '<br/>';
+        $username = $rows['uidUsers'];
+
+        echo "<div class=\"post-date\">$username    |   31/03-2019</div>";
+        echo "<div class=\"post\">";
+        echo "<div class=\"post-user\">"; 
+
+        echo $tittel . '<br/>';
       
         echo "</div>";
 
