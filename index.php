@@ -1,19 +1,18 @@
-<?php
-  require "header.php";
-?>
+
+  
+
 
 	<main>
 	 <div class="wrapper-main">
 	  <section class="section-default">
 	  	<?php
 	  		if (isset($_SESSION['userId'])) {
-	  			echo '<p>You are logged in!</p>';
+	  			require "header.php";
 	  		}
 	  		else {
-	  			echo '<p>You are logged out!</p>';
+	  			require "headerIndex.php";
 	  		}
 	  	?>
-		
 	  </section>
 	 </div>
 	</main>

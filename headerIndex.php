@@ -19,10 +19,6 @@
 	 	
 	 	 <nav>
 	 		 <ul>
-	 		 	<li><a href="feed.php">FEED</a></li>
-	 		 	<li><a href="#">KONTAKT</a></li>
-	 		 	<li><a href="minSide.php">MIN SIDE</a></li>
-	 		 	<li><a href="#">FAQ</a></li>
 	 		 </ul>
 	 		 <?php
 	 		 	if (isset($_SESSION['userId'])) {
@@ -41,7 +37,7 @@
 	 		 
 	 		 	
 	 		 	
-	 		 	
+	 		 	<a href="signup.php">Signup</a>
 	 		 </div>
 	 	</nav>
 		

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
   if(isset($_POST['publiser'])) {
 
@@ -6,15 +7,16 @@
 
     $tittel = $_POST['tittel'];
     $melding = $_POST['melding'];
+    $username = $_SESSION['userUid'];
     
     if($tittel && $melding ) {
-      $sql = "INSERT INTO melding (tittel, melding) VALUES ('$tittel', '$melding')";
+      $sql = "INSERT INTO melding (tittel, melding, uidUsers) VALUES ('$tittel', '$melding', '$username')";
       $stmt = mysqli_stmt_init($conn);
       if (!mysqli_stmt_prepare($stmt, $sql)) {
         exit();
       } else {
         mysqli_stmt_execute($stmt);
-        header("Location: /appOblig/feed.php");
+        header("Location: /applikasjon/feed.php");
 				exit();
       }
     }
@@ -44,12 +46,13 @@
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
               <li><a href=#>            Kontakt    </a></li> 
-              <li><a href=#>            Bruker     </a></li> 
+              <li><a href=minSide.php>  Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
           </ul>
       </nav>
   </header>
 
+            
 
       
       <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px; margin-top: 200px; margin-left: 190px;">Lag Ny Status</button>
@@ -93,7 +96,6 @@
 <div id="content">
   <?php
       require 'connect.php';
-      session_start();
       $getQuery = mysqli_query($conn, "SELECT * FROM melding ORDER BY id DESC");
 
       while($rows=mysqli_fetch_array($getQuery)) {
@@ -104,8 +106,13 @@
         $id = $rows['id'];
         $tittel = $rows['tittel'];
         $melding = $rows['melding'];
+        $username = $rows['uidUsers'];
         
         echo '<br/>' . $tittel . '<br/>';
+        echo '<br/>';
+        echo '<a href=bruker.php?uid='.$username.'>  '.$username.' </a>';
+        
+        
       
         echo "</div>";
 

@@ -7,8 +7,10 @@ if(isset($_POST['signup-submit'])){
 	$email = $_POST['mail'];
 	$password = $_POST['pwd'];
 	$passwordRepeat = $_POST['pwd-repeat'];
+	$gender = $_POST['gender'];
+	$campus = $_POST['campus'];
 
-	if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
+	 if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
 		header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
 		exit();
 	}
@@ -45,12 +47,21 @@ if(isset($_POST['signup-submit'])){
 				exit();
 			}
 			else {
-				$sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers) VALUES (?, ?, ?)";
+				$sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, genderUsers, campusUsers) VALUES (?, ?, ?, '$gender', '$campus')";
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql)) {
 				header("Location: ../signup.php?error=sqlerror");
 				exit();
 				}
+				else { 
+				 	$sql = "SELECT * FROM users WHERE emailUsers='$email'";
+					$result = mysqli_query($conn, $sql);
+					$resultCheck = mysqli_num_rows($result);
+					 if ($resultCheck > 0) { 
+					 	header("Location: ../signup.php?error=emailexist");
+					 	exit(); 
+					 	}
+					
 				else {
 					$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
@@ -58,7 +69,9 @@ if(isset($_POST['signup-submit'])){
 					mysqli_stmt_execute($stmt);
 					header("Location: ../signup.php?signup=success");
 					exit();
+
 			}
+		  }
 		}
 	}
 }

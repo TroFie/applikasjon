@@ -1,5 +1,5 @@
 <?php
-  require "header.php";
+  require "headerIndex.php";
 ?>
 
 	<main>
@@ -26,16 +26,33 @@
 				else if ($_GET['error'] == "usertaken") {
 					echo "<p>Username already taken..</p>";
 				}
+				else if ($_GET['error'] == "emailexist") {
+					echo "<p>Email exist..</p>";
+				}
 			}
-			else if ($_GET['signup'] == "success") {
-				echo "<p>Signup successfull..</p>";
+			if(isset($_GET['signup'])){
+			 if ($_GET['signup'] == "success") {
+				echo '<p class="signupsuccess"> Signup successful..</p>';
 			}
+		}
+			
 		?>
-		<form class="formHeader" action="includes/signup.inc.php" method="post">
-		 <input type="text" name="uid" value="Username">
-		 <input type="mail" name="mail" value="E-mail">
-		 <input type="password" name="pwd" value="Password">
-		 <input type="password" name="pwd-repeat" value="Repeat password">
+		<form action="includes/signup.inc.php" method="post">
+		 <input type="text" name="uid" placeholder="Username"> <br><br>
+		 <input type="mail" name="mail" placeholder="E-mail"> <br><br>
+		 <input type="password" name="pwd" placeholder="Password"> <br><br>
+		 <input type="password" name="pwd-repeat" placeholder="Repeat password"> <br><br>
+		 <input type="radio" name="gender" value="Male" checked> Male<br>
+  		 <input type="radio" name="gender" value="Female"> Female<br><br>
+  		 <input type="radio" name="campus" value="Bø" checked> Bø<br>
+  		 <input type="radio" name="campus" value="Drammen" > Drammen<br>
+  		 <input type="radio" name="campus" value="Kongsberg" > Kongsberg<br>
+  		 <input type="radio" name="campus" value="Porsgrunn" > Porsgrunn<br>
+  		 <input type="radio" name="campus" value="Rauland" > Rauland<br>
+  		 <input type="radio" name="campus" value="Ringerike" > Ringerike<br>
+  		 <input type="radio" name="campus" value="Vestfold" > Vestfold<br>
+  		 <input type="radio" name="campus" value="Notodden"> Notodden<br><br>
+ 		 
 		 <button type="submit" name="signup-submit">Signup</button>
 		</form>
 	  </section>
