@@ -43,7 +43,7 @@ $campus=$row['campusUsers'];
 
 <table width="398" border="0" align="center" cellpadding="0">
   <tr>
-    <td height="26" colspan="2">Profile information </td>
+    <td height="26" colspan="2"><?php echo $uid ?>'s Profile information </td>
   </tr>
   <tr>
     <td width="129" rowspan="5"><img src="bilder/1.png" width="129" height="129" alt="no image found"/></td>
