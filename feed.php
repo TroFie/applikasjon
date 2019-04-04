@@ -99,25 +99,20 @@ session_start();
       $getQuery = mysqli_query($conn, "SELECT * FROM melding ORDER BY id DESC");
 
       while($rows=mysqli_fetch_array($getQuery)) {
+        echo "<div class=\"post-date\">31/03-2019</div>";
+        echo "<div class=\"post\">";
+        echo "<div class=\"post-user\">"; 
+
         $id = $rows['id'];
         $tittel = $rows['tittel'];
         $melding = $rows['melding'];
         $username = $rows['uidUsers'];
-<<<<<<< HEAD
         
         echo '<br/>' . $tittel . '<br/>';
         echo '<br/>';
         echo '<a href=bruker.php?uid='.$username.'>  '.$username.' </a>';
         
         
-=======
-
-        echo "<div class=\"post-date\">$username    |   31/03-2019</div>";
-        echo "<div class=\"post\">";
-        echo "<div class=\"post-user\">"; 
-
-        echo $tittel . '<br/>';
->>>>>>> master
       
         echo "</div>";
 
