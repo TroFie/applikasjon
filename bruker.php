@@ -1,41 +1,69 @@
 <?php
-require "header.php"; 
- ?>
-<?php
-
 require 'connect.php';
+?>
+<html>
 
-$uid = (isset($_GET['uid'])) ? $_GET['uid'] : $_SESSION['uid'];
+<head>
+     <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css" />
 
+</head>
 
-$getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$uid'");
-while($rows=mysqli_fetch_array($getQuery))
-{
-$username=$rows['uidUsers'];
-$email=$rows['emailUsers'];
-$gender=$rows['genderUsers'];
-$campus=$rows['campusUsers'];
+<header>
+    <div class="container">
+        <div id="branding">
+          <h1>Forum Placeholder</h1>
+        </div></div>
+     
+      <nav class="container">
+          <ul> 
+              <li><a href=feed.php>     Feed       </a></li> 
+              <li><a href=#>            Kontakt    </a></li> 
+              <li><a href=#>            Bruker     </a></li> 
+              <li><a href=#>            FAQ        </a></li>
+          </ul>
+      </nav>
+  </header>
+
+<body>  
+
+<?php
+require 'connect.php';
+session_start();
+$result = mysqli_query($conn, "SELECT * FROM users where idUsers='30'");
+while($row = mysqli_fetch_array($result)) {
+$uid=$row['uidUsers'];
+$email=$row['emailUsers'];
+$gender=$row['genderUsers'];
+$campus=$row['campusUsers'];
+
 }
 ?>
+
 <table width="398" border="0" align="center" cellpadding="0">
   <tr>
-    <td height="26" colspan="2"><?php echo $username ?>'s Profile Information </td>
+    <td height="26" colspan="2">Profile information </td>
   </tr>
   <tr>
-    <td valign="top"><div align="left">Username:</div></td>
-    <td valign="top"><?php echo $username ?></td>
+    <td width="129" rowspan="5"><img src="bilder/1.png" width="129" height="129" alt="no image found"/></td>
+    <td width="82" valign="top"><div align="left">Username:</div></td>
+    <td width="165" valign="top"><?php echo $uid ?></td>
   </tr>
   <tr>
-    <td valign="top"><div align="left">Campus:</div></td>
-    <td valign="top"><?php echo $campus ?></td>
+    <td valign="top"><div align="left">Email:</div></td>
+    <td valign="top"><?php echo $email ?></td>
   </tr>
-  <tr>
+   <tr>
     <td valign="top"><div align="left">Gender:</div></td>
     <td valign="top"><?php echo $gender ?></td>
   </tr>
-  <tr>
-    <td valign="top"><div align="left">E-mail:</div></td>
-    <td valign="top"><?php echo $email ?></td>
+   <tr>
+    <td valign="top"><div align="left">Campus:</div></td>
+    <td valign="top"><?php echo $campus ?></td>
   </tr>
+
 </table>
-<p align="center"><a href="index.php"></a></p>	
+<p align="center"><a href="index.php"></a></p>
+
+</body>
+</html>
