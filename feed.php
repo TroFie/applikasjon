@@ -28,9 +28,33 @@ session_start();
 <html>
 
 <head>
-      <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="style.css" />
 
+    <script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      function post() {
+        var title = document.getElementById("tittel").value;
+        var comment = document.getElementById("melding").value;
+        
+        if(comment && title) {
+          $.ajax ({
+            type: 'post',
+            url: 'feed.php',
+            data: {
+              tittel: tittel,
+              melding: melding
+            },
+            success: function (response){
+              document.getElementById("content").innerHTML=response+document.getElementById("content").innerHTML;
+              document.getElementById("tittel").value="";
+              document.getElementById("melding").value="";
+            }
+          });
+        }
+        return false;
+      } 
+    </script>
 </head>
 
 <body>  
@@ -99,29 +123,27 @@ session_start();
       $getQuery = mysqli_query($conn, "SELECT * FROM melding ORDER BY id DESC");
 
       while($rows=mysqli_fetch_array($getQuery)) {
-        echo "<div class=\"post-date\">31/03-2019</div>";
-        echo "<div class=\"post\">";
-        echo "<div class=\"post-user\">"; 
-
         $id = $rows['id'];
         $tittel = $rows['tittel'];
         $melding = $rows['melding'];
         $username = $rows['uidUsers'];
-        
-        echo '<br/>' . $tittel . '<br/>';
-        echo '<br/>';
-        echo '<a href=bruker.php?uid='.$username.'>  '.$username.' </a>';
-        
-        
+        $post_time = $rows['post_time'];
+        ?>
       
-        echo "</div>";
-
-        echo $melding . '<br />';
-      }
-  ?>
+        <div class="post-date"><strong>Postet av:</strong> <?php echo "<a href=bruker.php?uid=$username> $username </a>";?> 
+                               <span> <p style="font-style:italic"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span></div>
+        <div class="post">
+        <div class="post-user">
+        <br/> <?php echo $tittel; ?><br/>
+        </div>
+        
+        <br /> <?php echo $melding; ?> 
+        
       
     </div>
-
+      <?php
+      }
+      ?>
 </div>
 </div>
 
