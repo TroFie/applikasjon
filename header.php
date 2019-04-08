@@ -31,16 +31,10 @@
 	 		 	</form>';
 	  		}
 	  		else {
-	  			echo '	<form class="formHeader" action="includes/login.inc.php" method="post">
-	 		 		<input type="text" name="mailuid" placeholder="Username/E-mail..">
-	 		 		<input type="password" name="pwd" placeholder="Password..">
-	 		 		<button type="submit" name="login-submit">Login</button>
-	 		 	</form>';
+	  			  header("Location: http://localhost/applikasjon/index.php", true, 301);
+exit();
 	  		}
-	 		 ?>
-	 		 
-	 		 	
-	 		 	
+	 		 ?> 	
 	 		 	
 	 		 </div>
 	 	</nav>
