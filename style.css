@@ -359,6 +359,82 @@ Må være to av disse hvis ikke fucker det med signup formen..
   opacity: 1;
 }
 
+/*
+Minside.php stuff
+*/
+.content{
+	width:36%;
+	background: #7D886B;
+	margin: auto;
+	padding: 10px 15px;
+}
+
+.content h1{
+	float: right;
+	padding-right: 30%;
+}
+.profile-content {
+    padding: 9px 12px;
+    font-size: 14px;    
+    background: #89977C;
+	border:none;
+    font-family: 'Lato', sans-serif;
+}
+
+.main{
+	padding:10px ;
+}
+.main h1{
+
+	font-size:35px;
+	text-align:center;
+	text-transform:uppercase;
+	font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+	letter-spacing:px;
+}
+
+.input-text {
+
+    width: 78%;
+    padding: 9px 12px;
+    font-size: 14px;
+    background: #efefef;
+	border:none;
+    font-family: 'Lato', sans-serif;
+}
+
+.update a:hover{
+			transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	background: #f5c63b;
+    border-bottom:3px solid #E0AD16;	
+}
+
+.update-profile {
+   font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  margin-top: 10px;
+  background: #4CAF50;
+  width: 30%;
+  border: 0;
+  padding: 9px 1px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.update-profile:hover {
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background: #43A047;
+}
 
 /*
 #banner{
