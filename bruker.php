@@ -99,11 +99,11 @@ $campus=$row['campusUsers'];
     <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;"/>
     Message:
     <textarea name="pmTextArea" id="pmTextArea" rows="8" style="width:98%;"></textarea>
-    <input name="pm_sender_id" id="pm_sender_id"  value="<?php echo $_SESSION['userUid'] ?>"/>
-    <input name="pm_rec_id" id="pm_rec_id"  value="<?php echo $uid ?>"/>
-    <input name="pmWipit" id="pmWipit"  value="<?php echo $wipit ?>"/>
+    <input type="hidden" name="pm_sender_id" id="pm_sender_id"  value="<?php echo $_SESSION['userUid'] ?>"/>
+    <input type="hidden" name="pm_rec_id" id="pm_rec_id"  value="<?php echo $uid ?>"/>
+    <input type="hidden" name="pmWipit" id="pmWipit"  value="<?php echo $wipit ?>"/>
     <span id="PMStatus" style="color:#F00;"></span>
-    <br/><input name="pmSubmit" type="submit" value="Submit"/>or<a href="feed.php" onmousedown="javascript:toggleInteractContainers('private_message');">Close</a>
+    <br/><input name="pmSubmit" type="submit" value="Submit"/> or <a href="feed.php" onmousedown="javascript:toggleInteractContainers('private_message');">Close</a>
  </form>
 </div>
 </php?>

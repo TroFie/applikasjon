@@ -45,6 +45,7 @@ session_start();
               <li><a href=#>            Kontakt    </a></li> 
               <li><a href=minSide.php>  Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
+              <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
           </ul>
       </nav>
   </header>
