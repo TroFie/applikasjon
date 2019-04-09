@@ -2,12 +2,9 @@
 session_start();
 require 'dbh.inc.php';
 
-if(isset($_POST['thisWipit'])) {
+
 $thisWipit = $_POST['thisWipit'];
-}
-if(isset($_SESSION['wipit'])) {
 $sessWipit = $_SESSION['wipit'];
-} 
 
 /* if session for wipit is not set or if session id is not set */
 
@@ -20,7 +17,7 @@ else if($_SESSION['userUid']!=$_POST['senderID']){
 	exit();
 }
 else if($sessWipit != $thisWipit){
-	echo '<strong> Forged submission </strong>';
+	echo '<strong> Forged submission2 </strong>';
 	exit();
 }
 else if($thisWipit=="" || $sessWipit==""){

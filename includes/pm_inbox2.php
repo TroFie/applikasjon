@@ -108,21 +108,23 @@ if(isset($_POST['deleteBtn'])){
 
 <header>
     <div class="container">
-        <div id="branding">
-          <h1>Forum Placeholder</h1>
-        </div></div>
+    <img src="../bilder/yippee.png" alt="">
+    </div>
      
-      <nav class="container">
+      <nav class="navbar">
           <ul> 
               <li><a href=../feed.php>     Feed       </a></li> 
               <li><a href=#>            Kontakt    </a></li> 
-              <li><a href=../minSide.php>   Min Side     </a></li> 
+              <li><a href=../minSide.php>  Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
+              <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
           </ul>
       </nav>
   </header>
 
 <body>
+	<?php echo $decryptedID; ?>
+	<?php echo $my_id; ?>
 <table width="920" style="background-color:#F2F2F2"; border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="732" valign="top">
@@ -173,7 +175,7 @@ if(isset($_POST['deleteBtn'])){
           </span>
           <div class="hiddenDiv"><br/>
             <?php echo stripslashes(wordwrap(nl2br($row['message']),54,"\n",true));?>
-            <br/><br/><a href="javascript:toggleReplyBox('<?php echo stripslashes($row['subject']);?>','<?php echo '$my_id';?>','<?php echo $Sname;?>','<?php echo $thisRandNum;?>','<?php echo $fr_id;?>',)">REPLY</a><br/>
+            <br/><br/><a href="javascript:toggleReplyBox('<?php echo stripslashes($row['subject']);?>','<?php echo $my_id;?>','<?php echo $Sname;?>','<?php echo $thisRandNum;?>','<?php echo $fr_id;?>',)">REPLY</a><br/>
           </div>
         </td>
         <td width="18%" valign="top"><span style="font-size:10px;"><?php echo $date;?></span></td>
