@@ -307,6 +307,33 @@ height:200px;
 }
 
 /*
+Logout stufffff
+*/
+.logout-submit {
+
+   font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  float:left;
+  background: #4CAF50;
+  width: 5%;
+  border: 0;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.logout-submit:hover {
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background: #43A047;
+}
+
+
+/*
 Login stuff
 */
 

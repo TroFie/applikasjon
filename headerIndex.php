@@ -7,7 +7,6 @@
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Log In</title>
 	<link rel="stylesheet" type="text/css" href="">
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -20,9 +19,10 @@
 		<body>
 			 <?php
 	 		 	if (isset($_SESSION['userId'])) {
-	  			echo '<form class="formHeader" action="includes/logout.inc.php" method="post">
-	 		 		<button class="logoutbutton" style="width: 200px; margin-top: 30px; margin-left: 825px;" type="submit" name="logout-submit">Logout</button>
+	  			echo '<form class="header" action="includes/logout.inc.php" method="post">
+	 		 		<button type="submit" class="logout-submit" name="logout-submit">Logout</button>
 	 		 	</form>';
+
 	  		}
 	  		else {
 	  			echo '	<br/><br/><br/><br/><form class="login-card" action="includes/login.inc.php" method="post">

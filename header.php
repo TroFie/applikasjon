@@ -7,12 +7,10 @@
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Log In</title>
 	<link rel="stylesheet" type="text/css" href="">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 	 <header>
 	 	<div class="container">
 	 		<img src="bilder/yippee.png" alt="">
@@ -28,10 +26,10 @@
 	 		 </ul>
 	 		 <?php
 	 		 	if (isset($_SESSION['userId'])) {
-	  			echo '<form class="formHeader" action="includes/logout.inc.php" method="post">
-	 		 		<button class="logoutbutton" style="width: 150px; margin-bottom: 10px;" type="submit" name="logout-submit">Logout</button>
+	  			echo '<form class="header" action="includes/logout.inc.php" method="post">
+	 		 		<button type="submit" class="logout-submit" name="logout-submit">Logout</button>
 	 		 	</form>';
-	  		}
+	  }
 	  		else {
 	  			  header("Location: http://localhost/applikasjon/index.php", true, 301);
 			exit();
