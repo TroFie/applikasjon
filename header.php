@@ -15,9 +15,11 @@
 
 	 <header>
 	 	<div class="container">
-	 	<h1>Forum Placeholder</h1>
-	 	
-	 	 <nav>
+	 		<img src="bilder/yippee.png" alt="">
+		</div>
+
+		<div class="container">
+	 	 <nav class="navbar">
 	 		 <ul>
 	 		 	<li><a href="feed.php">FEED</a></li>
 	 		 	<li><a href="#">KONTAKT</a></li>
@@ -27,12 +29,12 @@
 	 		 <?php
 	 		 	if (isset($_SESSION['userId'])) {
 	  			echo '<form class="formHeader" action="includes/logout.inc.php" method="post">
-	 		 		<button type="submit" name="logout-submit">Logout</button>
+	 		 		<button class="logoutbutton" style="width: 150px; margin-bottom: 10px;" type="submit" name="logout-submit">Logout</button>
 	 		 	</form>';
 	  		}
 	  		else {
 	  			  header("Location: http://localhost/applikasjon/index.php", true, 301);
-exit();
+			exit();
 	  		}
 	 		 ?> 	
 	 		 	

@@ -17,7 +17,8 @@ body{
 	font: 15px/1.5 Arial, Helvetica, sans-serif;
 	padding: 0;
 	margin: 0;
-    background: url(bilder/background.jpg);
+	background-color: rgb(211, 211, 211);
+    /* background: url(bilder/background1.jpg); */
     background-attachment: fixed;
 }
 
@@ -33,20 +34,22 @@ p{
 	padding: 0;
 }
 
-header{
-	min-height: 70px;
+header{ 
+	background-color: rgb(62, 136, 73);
+	min-height: 120px;
+	border-bottom: #185f1e 3px solid;
 }
 
 header li{
 	display: inline;
-	padding: 20px;
+	padding: 30px;
 }
 
 header a{
-	color: #333333;
+	color: rgb(231, 231, 231);
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 22px;
+	font-size: 23px;
 }
 
 header a:hover{
@@ -54,9 +57,21 @@ header a:hover{
 	font-weight: bold;
 }
 
+img {
+	float: center;
+	height: 15%;
+	width: 15%;
+}
+
+.navbar {
+	text-align: center;
+	overflow: hidden;
+}
+
 ul{
 	margin: 0;
 	padding: 0;
+	display: inline-block;
 }
 
 footer {
@@ -71,14 +86,7 @@ footer {
 header #branding h1{
 	font-size: 70px;
 	margin-bottom: 5px;
-	color:#333333
-}
-a.newpost{
-	color:lightblue;
-	font-size:20px;
-	text-decoration:none;
-	color:#333333;
-	font-weight: bold;
+	/* color:#333333 */
 }
 
 .formHeader {
@@ -86,7 +94,6 @@ a.newpost{
 	padding: 0;
 	margin-top: 40px;
 	margin-left: 20px;
-	background-color:pink;
 }
 
 /*
@@ -99,57 +106,56 @@ a.newpost{
 }
 */
 
+.shadowbox {
+	box-shadow: 0px 0px 10px;
+	height: 200px;
+	border-radius: 3px;
+	margin-bottom: 40px;
+}
+
 .post {
 	float: left;
-	background-color: rgba(250, 255, 255, 0.4);
-	margin-bottom: 40px;
-	box-shadow: 0px 0px 12px;
-	border-radius: 3px;
+	background-color: rgb(95, 133, 100);
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
 	width: 100%;
-	height: 200px;
-
-}
-.post-user {
-	width: 15%; min-height: 200px;
-	float: left;
+	height: 150px;
+	float: center;
 	text-align:center;
-	border-right:2px solid;
 }
+/* 
+.post-user {
+	float: center;
+	text-align:center;
+} */
 
 .post-date {
-	margin-top:15px;
 	width: 100%;
-	background-color: rgba(255, 255, 255, 0.3);	
+	background-color: rgb(68, 99, 73);
 	float: right;
 	text-align:left;
 	color:#e6ffe6;
 	font-size:15px;
-	border-radius: 3px;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	height: 50px;
 }
 
 .container{
 	width: auto;
 	margin: auto;
-	background-color  : rgba(200, 255, 255, 0.2);	
 	overflow: hidden;
 	text-align: center;
 	font-size: 30px;
   }
 
-
-#content{
-	background:  #ffffcc;
-	height:auto;
-}
-
-
 #main{
 	padding-left: 10%;
 	padding-right: 10%;
-    font-size: 22px;
-    font-family: "Arial";
-    text-align:center;
-	
+  font-size: 22px;
+  font-family: "Arial";
+  text-align:center;
+	height:auto;
 }
 
 .feedText{
@@ -182,10 +188,22 @@ a.newpost{
 	cursor: pointer;
 	width: 90%;
 	font-size:20px;
+	margin-bottom:15px;
 }
 
 button:hover {
 	opacity: 0.8;
+}
+
+.statussvar {
+	background-color: rgb(46, 46, 46);
+	color: white;
+	padding: 9px 15px;
+	margin: 8px 28px;
+	border: none;
+	cursor: pointer;
+	width: 90%;
+	font-size:15px;
 }
 
 .imgcontainer {
@@ -213,6 +231,53 @@ height:200px;
 }
 
 .modal-content {
+	background-color: #fefefe;
+	margin: 4% auto 15% auto;
+	border: 1px solid #888;
+	width: 40%; 
+	padding-bottom: 30px;
+}
+
+.close {
+	position: absolute;
+	right: 25px;
+	top: 0;
+	color: #000;
+	font-size: 35px;
+	font-weight: bold;
+}
+.close:hover,.close:focus {
+	color: red;
+	cursor: pointer;
+}
+
+.animate {
+	animation: zoom 0.3s
+}
+@keyframes zoom {
+	from {transform: scale(0)} 
+	to {transform: scale(1)}
+}
+
+.svarcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+	position: relative;
+}
+
+.svar {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; 
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.svar-content {
 	background-color: #fefefe;
 	margin: 4% auto 15% auto;
 	border: 1px solid #888;
@@ -357,6 +422,15 @@ Må være to av disse hvis ikke fucker det med signup formen..
 
 .login-card a:hover {
   opacity: 1;
+}
+
+.logoutbutton {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	cursor: pointer;
+	font-size:20px;
 }
 
 /*

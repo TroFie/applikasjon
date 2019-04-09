@@ -21,7 +21,6 @@ session_start();
       }
     }
   } 
-  
 ?>
 
 <!DOCTYPE html>
@@ -29,44 +28,18 @@ session_start();
 
 <head>
     <meta charset="utf-8">
-      <link rel="stylesheet" type="text/css" href="style.css" />
-
-    <script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      function post() {
-        var title = document.getElementById("tittel").value;
-        var comment = document.getElementById("melding").value;
-        
-        if(comment && title) {
-          $.ajax ({
-            type: 'post',
-            url: 'feed.php',
-            data: {
-              tittel: tittel,
-              melding: melding
-            },
-            success: function (response){
-              document.getElementById("content").innerHTML=response+document.getElementById("content").innerHTML;
-              document.getElementById("tittel").value="";
-              document.getElementById("melding").value="";
-            }
-          });
-        }
-        return false;
-      } 
-    </script>
+      <link rel="stylesheet" type="text/css" href="style.css" />  
+      <title>Feed</title>
 </head>
 
 <body>  
 
-
 <header>
-    <div class="container">
-        <div id="branding">
-          <h1>Forum Placeholder</h1>
-        </div></div>
+  <div class="container">
+    <img src="bilder/yippee.png" alt="">
+    </div>
      
-      <nav class="container">
+      <nav class="navbar">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
               <li><a href=#>            Kontakt    </a></li> 
@@ -75,49 +48,64 @@ session_start();
           </ul>
       </nav>
   </header>
-
-            
-
-      
-      <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px; margin-top: 200px; margin-left: 190px;">Lag Ny Status</button>
-      
+  
+  <!-- Ny status -->
+    <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px;  margin-top: 40px; margin-left: 10.1%;">Lag Ny Status</button>
+  
       <div id="modal-wrapper" class="modal">
 
         <form class="modal-content animate" action="" method="POST">
 
           <div class="imgcontainer">
-            <span onclick="document.getElementById(modal-wrapper).style.display='none'" class="close" title="Lukk vindu">&times;</span>
             <h1 style="text-align:center">Ny Status</h1>
           </div>
 
           <div class="container">
-          
             <td>Tittel: </td><td><input class="feedText" type="text" placeholder="Tittel" name="tittel"></td>
           </div>
 
           <div class="container">
             <td>Statusmelding: </td>
-            <textarea class="feedTextArea" style="resize: none;" placeholder="Skriv en ny status" name="melding"></textarea>      
+            <textarea class="feedTextArea" style="resize: none; font-family:arial;" placeholder="Skriv en ny status" name="melding"></textarea>      
             <input class="statusbutton" type="submit" name="publiser" value="Publiser" style="width:200px;">    
           </div>
         
         </form>
-
       </div>
 
-      <script>
+      <!-- Svar funksjon -->
+        <div id="svar-wrapper" class="svar">
+
+        <form class="svar-content animate" action="" method="POST">
+
+          <div class="svarcontainer">
+            <h1 style="text-align:center">Svar</h1>
+          </div>
+
+          <div class="container">
+            <td>Ditt svar: </td>
+            <textarea class="feedTextArea" style="resize: none;" placeholder="Svar på statusen" name="melding"></textarea>      
+            <input class="statusbutton" type="submit" name="publiser" value="Svar" style="width:200px;">    
+          </div>
         
+        </form>
+        <script>
+        var svar = document.getElementById('svar-wrapper');
         var modal = document.getElementById('modal-wrapper');
-        window.onclick = function(event) {
+        window.onclick = closeWindow;
+        
+        function closeWindow(event) {
+            if (event.target == svar) {
+                svar.style.display = "none";
+            } 
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
-        </script>
-
+      </script>
+      </div>
 
 <div id="main">
-<div id="content">
   <?php
       require 'connect.php';
       $getQuery = mysqli_query($conn, "SELECT * FROM melding ORDER BY id DESC");
@@ -129,24 +117,22 @@ session_start();
         $username = $rows['uidUsers'];
         $post_time = $rows['post_time'];
         ?>
-      
-        <div class="post-date"><strong>Postet av:</strong> <?php echo "<a href=bruker.php?uid=$username> $username </a>";?> 
-                               <span> <p style="font-style:italic"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span></div>
+        <div class="shadowbox">
+        <div class="post-date"><strong style="margin-left:5px">Postet av:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $username </a>";?> 
+                               <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span></div>
         <div class="post">
-        <div class="post-user">
-        <br/> <?php echo $tittel; ?><br/>
-        </div>
+        <h3 style="color: rgb(223, 223, 223); text-align: left; margin-left:10px;"><?php echo $tittel; ?><br/></h3>
         
-        <br /> <?php echo $melding; ?> 
-        
-      
+        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:10px; margin-top:5px;"><?php echo $melding; ?></p>
+        <br/> 
+        <br/>
+        <!-- <button class="statussvar" onclick="document.getElementById('svar-wrapper').style.display='block'" style="width: 100px; margin-top: 50px;">Svar</button> -->
+      </div>
     </div>
       <?php
       }
       ?>
 </div>
-</div>
-
 
 </body>
 </html>

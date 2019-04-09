@@ -14,18 +14,18 @@
 
 	 <header>
 	 	<div class="container">
-	 	<h1>Forum Placeholder</h1>
-	 		 </div>	
+    		<img src="bilder/yippee.png" alt="">
+    	</div>
 	</header>
-	<body>
+		<body>
 			 <?php
 	 		 	if (isset($_SESSION['userId'])) {
 	  			echo '<form class="formHeader" action="includes/logout.inc.php" method="post">
-	 		 		<button type="submit" name="logout-submit">Logout</button>
+	 		 		<button class="logoutbutton" style="width: 200px; margin-top: 30px; margin-left: 825px;" type="submit" name="logout-submit">Logout</button>
 	 		 	</form>';
 	  		}
 	  		else {
-	  			echo '	<form class="login-card" action="includes/login.inc.php" method="post">
+	  			echo '	<br/><br/><br/><br/><form class="login-card" action="includes/login.inc.php" method="post">
 	  				<h1>Log-in</h1><br>
 	 		 		<input type="text" name="mailuid" placeholder="Username/E-mail..">
 	 		 		<input type="password" name="pwd" placeholder="Password..">
