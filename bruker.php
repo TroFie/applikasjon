@@ -1,3 +1,4 @@
+
 <?php
 require 'connect.php';
 ?>
@@ -34,24 +35,26 @@ function sendPM(){
 
 </head>
 
-<header>
+
+ <header>
     <div class="container">
-        <div id="branding">
-          <h1>Forum Placeholder</h1>
-        </div></div>
-     
-      <nav class="container">
+      <img src="bilder/yippee.png" alt="">
+    </div>
+<form class="header" action="includes/logout.inc.php" method="post">
+          <button type="submit" class="logout-submit" name="logout-submit">Logout</button>
+        </form>
+    <div class="container">
+     <nav class="navbar">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
               <li><a href=#>            Kontakt    </a></li> 
-              <li><a href=minSide.php>   Min Side     </a></li> 
+              <li><a href=minSide.php>  Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
+              <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
           </ul>
-      </nav>
+          
+
   </header>
-
-<body>  
-
 <?php
 require 'connect.php';
 session_start();
@@ -67,46 +70,59 @@ $campus=$row['campusUsers'];
 }
 ?>
 
-<table width="398" border="0" align="center" cellpadding="0">
-  <tr>
-    <td height="26" colspan="2"><?php echo $uid ?>'s Profile information </td>
-  </tr>
-  <tr>
-    <td width="129" rowspan="5"><img src="bilder/1.png" width="129" height="129" alt="no image found"/></td>
-    <td width="82" valign="top"><div align="left">Username:</div></td>
-    <td width="165" valign="top"><?php echo $uid ?></td>
-  </tr>
-  <tr>
-    <td valign="top"><div align="left">Email:</div></td>
-    <td valign="top"><?php echo $email ?></td>
-  </tr>
-   <tr>
-    <td valign="top"><div align="left">Gender:</div></td>
-    <td valign="top"><?php echo $gender ?></td>
-  </tr>
-   <tr>
-    <td valign="top"><div align="left">Campus:</div></td>
-    <td valign="top"><?php echo $campus ?></td>
-  </tr>
+<body>  
+<div class="main">
 
-</table>
+  <div class="content">
+      <h1><?php echo $uid ?> sin profil</h1>
+      
 
-<div id="interactionResults" style="'font-size:15px; padding: 10px;"></div>
-<div class="interactContainers" id="private_message">
-  <form action="javascript:sendPM();" name="pmForm" id="pmForm" method="post">
-    <font size="+1">Sending Private Message to <strong><em><?php echo $uid ?></em></strong></font><br/><br/>
-    Subject:
-    <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;"/>
-    Message:
-    <textarea name="pmTextArea" id="pmTextArea" rows="8" style="width:98%;"></textarea>
-    <input type="hidden" name="pm_sender_id" id="pm_sender_id"  value="<?php echo $_SESSION['userUid'] ?>"/>
-    <input type="hidden" name="pm_rec_id" id="pm_rec_id"  value="<?php echo $uid ?>"/>
-    <input type="hidden" name="pmWipit" id="pmWipit"  value="<?php echo $wipit ?>"/>
-    <span id="PMStatus" style="color:#F00;"></span>
-    <br/><input name="pmSubmit" type="submit" value="Submit"/> or <a href="feed.php" onmousedown="javascript:toggleInteractContainers('private_message');">Close</a>
- </form>
-</div>
-</php?>
+        <div class="profile-content">
+           <h3>Brukernavn</h3>  
+            <?php echo $uid ?>
+                          
+                 <h3>Email</h3>
+                     <div class="email-group">
+                              <div class="email-form">
+                                <?php echo $email ?>  
+                             </div>
+                          </div>
+
+                          <h3>Campus</h3> 
+                          <div class="campus-group">     
+                              <div class="campus-form">
+                                <?php echo $campus ?>
+                              </div>     
+                          </div>
+
+                          <h3>Kjønn</h3> 
+                           <div class="gender-group">     
+                              <div class="gender-form">
+                              <?php echo $gender ?>
+                              </div>
+
+    <div id="interactionResults" style="'font-size:15px; padding: 10px;"></div>
+    <div class="interactContainers" id="private_message">
+      <form action="javascript:sendPM();" name="pmForm" id="pmForm" method="post">
+        <font size="+1"> <br> <h3>Sending Private Message to <?php echo $uid ?><h3></font><br/>
+        Subject: <br>
+        <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:100%;"/>
+       <br> Message:<br>
+        <textarea name="pmTextArea" id="pmTextArea" rows="8" style="width:100%;"></textarea>
+        <input type="hidden" name="pm_sender_id" id="pm_sender_id"  value="<?php echo $_SESSION['userUid'] ?>"/>
+        <input type="hidden" name="pm_rec_id" id="pm_rec_id"  value="<?php echo $uid ?>"/>
+        <input type="hidden" name="pmWipit" id="pmWipit"  value="<?php echo $wipit ?>"/>
+        <span id="PMStatus" style="color:#F00;"></span>
+        <br/><input type="submit" name="pmSubmit" class="update-profile" value="Submit"/> or <a href="feed.php" onmousedown="javascript:toggleInteractContainers('private_message');">Close</a>
+     </form>
+    </div>
+    </php?>
+    </div>
+    <div class="tab-1 resp-tab-content">
+         </div>
+    
+     </div>            
+        </div>
 
 </body>
 </html>
