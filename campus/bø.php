@@ -48,6 +48,7 @@ session_start();
               <li><a href=../minSide.php>  Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
               <li><a href=../includes/pm_inbox2.php>            Inbox        </a></li>
+              <li><a href=../campus.php>            Campus        </a></li>
           </ul>
       </nav>
       
