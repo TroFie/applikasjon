@@ -40,12 +40,12 @@ if(isset($_POST['deleteBtn'])){
 
     function toggleChecks(field){
     if (document.myform.toggleAll.checked==true){
-      for (i = 0; i<field.length; i++) {
+      for (i = 0; i<100; i++) {
         field[i].checked = true;
       }
     }else
      {
-      for(i = 0; i<field.length; i++){
+      for(i = 0; i<100; i++){
         field[i].checked = false;
       }
     }
@@ -110,8 +110,6 @@ if(isset($_POST['deleteBtn'])){
     <div class="container">
     <img src="../bilder/yippee.png" alt="">
     </div>
-    <form class="header" action="includes/logout.inc.php" method="post">
-    <button type="submit" class="logout-submit" name="logout-submit">Logout</button>
       <nav class="navbar">
           <ul> 
               <li><a href=../feed.php>     Feed       </a></li> 
