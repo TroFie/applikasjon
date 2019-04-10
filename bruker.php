@@ -104,10 +104,10 @@ $campus=$row['campusUsers'];
     <div id="interactionResults" style="'font-size:15px; padding: 10px;"></div>
     <div class="interactContainers" id="private_message">
       <form action="javascript:sendPM();" name="pmForm" id="pmForm" method="post">
-        <font size="+1"> <br> <h3>Sending Private Message to <?php echo $uid ?><h3></font><br/>
-        Subject: <br>
+        <font size="+1"> <br> <h3>Send melding til <?php echo $uid ?><h3></font><br/>
+        Tittel: <br>
         <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:100%;"/>
-       <br> Message:<br>
+       <br> Melding:<br>
         <textarea name="pmTextArea" id="pmTextArea" rows="8" style="width:100%;"></textarea>
         <input type="hidden" name="pm_sender_id" id="pm_sender_id"  value="<?php echo $_SESSION['userUid'] ?>"/>
         <input type="hidden" name="pm_rec_id" id="pm_rec_id"  value="<?php echo $uid ?>"/>
