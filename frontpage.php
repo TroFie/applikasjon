@@ -18,7 +18,7 @@
     <section id="intro" class="intro">
 		<div class="slogan">
 			<h1>Møte appen for studenter</h1>
-			<p>Møt andre studenter fra ditt campus, <br> bli med på og lag arrangementer. <br>
+			<p>Møt andre studenter fra ditt campus, <br> bli med på og lag arrangementer. <br> <br>
 				Register deg i dag!</p>
 		<a href="signup.php" class="login-submit">Register deg</a>
 		<br> <br> <br>
