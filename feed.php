@@ -126,7 +126,7 @@ session_start();
         <div class="shadowbox">
         <div class="post-date">
           <strong style="margin-left:5px">Postet av:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $username </a>";?>
-          <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $campus </a>";?>  
+          <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=campus/$campus.php> $campus </a>";?>  
           <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span></div>
         <div class="post">
         <h3 style="color: rgb(223, 223, 223); text-align: left; margin-left:10px;"><?php echo $tittel; ?><br/></h3>
