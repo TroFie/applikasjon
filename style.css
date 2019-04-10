@@ -18,7 +18,7 @@ body{
 	padding: 0;
 	margin: 0;
 	background-color: rgb(211, 211, 211);
-    /* background: url(bilder/background1.jpg); */
+    /* background: url(bilder/green.jpg); */
     background-attachment: fixed;
 }
 
@@ -337,6 +337,52 @@ Logout stufffff
 Login stuff
 */
 
+.intro {
+	width:100%;
+	position:relative;
+}
+#intro{	
+	background-image: url(bilder/img-bg.jpg);
+	background-size: cover;
+}
+
+.intro .slogan {
+	padding:250px 0 600px;
+	text-align: center;
+	
+}
+
+.intro .slogan h1 {
+	color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	line-height: 1.1em;
+	margin-bottom: 20px;
+	 font-size: 40px;
+}
+
+.intro .slogan p {
+	color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	margin-bottom: 50px;
+	font-size: 20px;
+}
+.brand-heading {
+    font-size: 40px;
+}
+
+.intro-text {
+    font-size: 18px;
+}
+
+.intro .login-card input[type=submit] {
+  width: 10%;
+  display: block;
+  margin-bottom: 10px;
+  
+
+}
+
+
 .login-card {
   padding: 40px;
   width: 274px;
@@ -390,6 +436,19 @@ Må være to av disse hvis ikke fucker det med signup formen..
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+.login-card input[type=mail] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
 
 .login-card input[type=password]:hover {
   border: 1px solid #b9b9b9;
@@ -417,7 +476,7 @@ Må være to av disse hvis ikke fucker det med signup formen..
 }
 
 .login-submit {
-
+text-decoration: none;
    font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -426,7 +485,7 @@ Må være to av disse hvis ikke fucker det med signup formen..
   border: 0;
   padding: 10px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
@@ -440,10 +499,11 @@ Må være to av disse hvis ikke fucker det med signup formen..
 
 .login-card a {
   text-decoration: none;
-  font-weight: 400;
+  font-family: "Roboto", sans-serif;
   text-align: center;
+  font-size: 16px;
+  padding: 10px;
   display: inline-block;
-  opacity: 0.6;
   transition: opacity ease 0.5s;
 }
 
