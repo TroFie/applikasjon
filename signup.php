@@ -5,7 +5,7 @@
 	<main>
 	 <div class="wrapper-main">
 	  <section class="section-default">
-		<h1>Signup</h1>
+		
 		<?php
 			if (isset($_GET['error'])) {
 				if ($_GET['error'] == "emptyfields") {
@@ -37,7 +37,9 @@
 		}
 			
 		?>
-		<form action="includes/signup.inc.php" method="post">
+
+		<form class="login-card" action="includes/signup.inc.php" method="post">
+		<h1>Registering</h1>
 		 <input type="text" name="uid" placeholder="Username"> <br><br>
 		 <input type="mail" name="mail" placeholder="E-mail"> <br><br>
 		 <input type="password" name="pwd" placeholder="Password"> <br><br>
@@ -53,7 +55,7 @@
   		 <input type="radio" name="campus" value="Vestfold" > Vestfold<br>
   		 <input type="radio" name="campus" value="Notodden"> Notodden<br><br>
  		 
-		 <button type="submit" name="signup-submit">Signup</button>
+		 <button type="submit" class="login-submit" name="signup-submit">Sign up</button>
 		</form>
 	  </section>
 	 </div>
