@@ -15,16 +15,7 @@
 	 	<div class="container">
 	 		<img src="bilder/yippee.png" alt="">
 		</div>
-
-		<div class="container">
-	 	 <nav class="navbar">
-	 		 <ul>
-	 		 	<li><a href="feed.php">FEED</a></li>
-	 		 	<li><a href="#">KONTAKT</a></li>
-	 		 	<li><a href="minSide.php">MIN SIDE</a></li>
-	 		 	<li><a href="#">FAQ</a></li>
-	 		 </ul>
-	 		 <?php
+	 <?php
 	 		 	if (isset($_SESSION['userId'])) {
 	  			echo '<form class="header" action="includes/logout.inc.php" method="post">
 	 		 		<button type="submit" class="logout-submit" name="logout-submit">Logout</button>
@@ -34,7 +25,17 @@
 	  			  header("Location: http://localhost/applikasjon/index.php", true, 301);
 			exit();
 	  		}
-	 		 ?> 	
+	 		 ?> 
+		<div class="container">
+	 	 <nav class="navbar">
+          <ul> 
+              <li><a href=feed.php>     Feed       </a></li> 
+              <li><a href=#>            Kontakt    </a></li> 
+              <li><a href=minSide.php>  Min Side     </a></li> 
+              <li><a href=#>            FAQ        </a></li>
+              <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
+          </ul>
+	 	 	
 	 		 	
 	 		 </div>
 	 	</nav>
