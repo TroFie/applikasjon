@@ -117,15 +117,13 @@ if(isset($_POST['deleteBtn'])){
               <li><a href=#>            Kontakt    </a></li> 
               <li><a href=../minSide.php>  Min Side     </a></li> 
               <li><a href=#>            FAQ        </a></li>
-              <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
+              <li><a href=pm_inbox2.php>            Inbox        </a></li>
           </ul>
       </nav>
   </header>
 
 <body>
-	<?php echo $decryptedID; ?>
-	<?php echo $my_id; ?>
-<table width="920" style="background-color:#F2F2F2"; border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="920" style="background-color:#F2F2F2; margin-left:500px; margin-top:100px"; border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="732" valign="top">
     <h2 style="margin-left: 24px;">Your Private Messages</h2>
