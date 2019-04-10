@@ -17,6 +17,8 @@
     	</div>
 	</header>
 		<body>
+
+		</div>
 			 <?php
 	 		 	if (isset($_SESSION['userId'])) {
 	  			echo '<form class="header" action="includes/logout.inc.php" method="post">
@@ -29,13 +31,13 @@
 	  				<h1>Log-in</h1><br>
 	 		 		<input type="text" name="mailuid" placeholder="Username/E-mail..">
 	 		 		<input type="password" name="pwd" placeholder="Password..">
-	 		 		<input type="submit" name="login-submit" class="login login-submit" value="Log in">
-	 		 		<a href="signup.php">Signup</a> • <a href="#">Forgot Password</a>
-	 		 	</form>';
+	 		 		<input type="submit" name="login-submit" class="login login-submit" value="Logg in">
+	 				 <a href="signup.php" class="login login-submit">Register deg</a>			 	</form>';
 	  		}
 	 		 ?>
 	 		 
-	 		 	
+	 		 	 
+
 
 </body>
 </html>
