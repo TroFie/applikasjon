@@ -38,7 +38,9 @@ session_start();
   <div class="container">
     <img src="bilder/yippee.png" alt="">
     </div>
-     
+     <form class="header" action="includes/logout.inc.php" method="post">
+          <button type="submit" class="logout-submit" name="logout-submit">Logout</button>
+        </form>
       <nav class="navbar">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
@@ -48,6 +50,7 @@ session_start();
               <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
           </ul>
       </nav>
+      
   </header>
   
   <!-- Ny status -->
