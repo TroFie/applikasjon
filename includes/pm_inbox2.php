@@ -40,12 +40,12 @@ if(isset($_POST['deleteBtn'])){
 
     function toggleChecks(field){
     if (document.myform.toggleAll.checked==true){
-      for (i = 0; i<100; i++) {
+      for (i = 0; i<10000; i++) {
         field[i].checked = true;
       }
     }else
      {
-      for(i = 0; i<100; i++){
+      for(i = 0; i<10000; i++){
         field[i].checked = false;
       }
     }
