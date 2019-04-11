@@ -18,7 +18,8 @@ $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'"
 ?>
 
 <?php
- $_SESSION["idUsers"];
+ $_SESSION["idUsers"] = "38";
+  $idUsers = $_SESSION['idUsers'];
 require 'connect.php';
 
 if (count($_POST) > 0) {
