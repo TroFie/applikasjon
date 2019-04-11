@@ -20,7 +20,9 @@ session_start();
 				exit();
       }
     }
-  } 
+  }
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +91,27 @@ session_start();
       
   </header>
   
+<form action="#" method="post" style="margin-left:500px;">
+<select name="Campus">
+<?php
+$options = array("Alle","Drammen","Kongsberg","Porsgrunn","Bø","Notodden","Vestfold");
+$selected_val = "Alle";
+foreach($options as $option){
+    if($selected_val==$option){
+        echo '<option value="'.$option.'" selected="selected">'.ucfirst($option).'</option>';
+    }else{
+        echo '<option value="'.$option.'">'.ucfirst($option).'</option>';
+    }
+}
+?>
+</select>
+<input type="submit" name="campus" value="Velg campus-feed"/>
+</form>
+<?php
+if(isset($_POST['campus'])){
+$selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
+}
+?>
   <!-- Ny status -->
     <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px;  margin-top: 40px; margin-left: 10.1%;">Lag Ny Status</button>
   
@@ -149,7 +172,9 @@ session_start();
   <?php
       require 'connect.php';
       $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers ORDER BY id DESC");
-      
+      if($selected_val!="Alle"){
+      $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers AND users.campusUsers='$selected_val' ORDER BY id DESC");
+      }
       while($rows=mysqli_fetch_array($getQuery)) {
         $id = $rows['idUsers'];
         $idmelding = $rows['id'];
