@@ -29,7 +29,7 @@ if (count($_POST) > 0) {
       mysqli_query($conn, "UPDATE users set pwdUsers='" . password_hash($_POST["newPassword"], PASSWORD_DEFAULT) . "' WHERE idUsers='" . $_SESSION["idUsers"] . "'");
         $message = "Passord byttet";
     } else
-        $message = "Noe gikk falt";
+        $message = "Passordene matcher ikke";
 }
 
 ?>
