@@ -319,9 +319,8 @@ Logout stufffff
    font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-	float:center;
-	margin-left:890px;
-	margin-bottom:10px;
+ 	float: right;
+  margin-bottom:10px;
   background: #4CAF50;
   /* width: 5%; */
   border: 0;
@@ -537,10 +536,7 @@ Minside.php stuff
 	padding: 10px 15px;
 }
 
-.content h1{
-	float: right;
-	padding-right: 30%;
-}
+
 .profile-content {
     padding: 9px 12px;
     font-size: 14px;    
@@ -603,7 +599,14 @@ Minside.php stuff
   text-shadow: 0 1px rgba(0,0,0,0.3);
   background: #43A047;
 }
-
+@media only screen and (max-device-width: 480px) {
+    .content {
+       width: 80%;
+    }       
+    @media (max-width: 1000px) {
+      .content {
+      width: 80%;
+  }
 /*
 #banner{
 	background: url(bilder/topbackground.jpg);
