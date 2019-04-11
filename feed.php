@@ -174,6 +174,8 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
       $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers ORDER BY id DESC");
       if($selected_val!="Velg"){
       $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers AND users.campusUsers='$selected_val' ORDER BY id DESC");
+      }if($selected_val=="Alle"){
+        $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers ORDER BY id DESC");
       }
       while($rows=mysqli_fetch_array($getQuery)) {
         $id = $rows['idUsers'];
