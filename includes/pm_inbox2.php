@@ -64,7 +64,7 @@ if(isset($_POST['deleteBtn'])){
     document.replyForm.pmSubject.value = subject;
     document.replyForm.pm_sender_id.value = senderid;
     document.replyForm.pm_rec_id.value = recID;
-    document.replyForm.replyBtn.value = "Send reply to " + recID;
+    document.replyForm.replyBtn.value = "Send melding til " + recID;
     document.replyForm.pmWipit.value = replyWipit;
     if($('#replyBox').is(":hidden")){
       $('#replyBox').fadeIn(1000);

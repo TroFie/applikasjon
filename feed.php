@@ -53,7 +53,7 @@ session_start();
     document.replyForm.pm_sender_id.value = senderid;
     document.replyForm.pm_rec_id.value = recID;
     document.replyForm.pm_meld_id.value = idmelding;
-    document.replyForm.replyBtn.value = "Send reply to " + senderid;
+    document.replyForm.replyBtn.value = "Send kommentar til " + senderid;
     if($('#replyBox').is(":hidden")){
       $('#replyBox').fadeIn(1000);
     }else{
