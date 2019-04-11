@@ -184,7 +184,7 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         }
       </script>
       </div>
-
+      
 <div id="main">
   <?php
       require 'connect.php';
@@ -209,8 +209,8 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         <div class="post-date">
           <strong style="margin-left:5px">Postet av:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $username </a>";?>
 
-          <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=campus/$campus.php> $campus </a>";?>  
-          <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span>
+          <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=campus/$campus.php> $campus </a>";?>
+          <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span>  
           </div>
         <div class="post">
 
@@ -227,7 +227,7 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         $bruker_reply = $row['uidUsers_melding'];
         ?>
        <?php if($idbruker==$id AND $idmelding==$id_melding ){ ?>
-        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left;"><?php echo $bruker_reply; ?> svarte: <?php echo $id2; ?></p>
+       <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left;"><?php echo $bruker_reply; ?> svarte: <?php echo $id2; ?><p style="border-bottom: rgb(68, 99, 73) 2px solid;"></p>
         <?php }} ?> 
         <div style="text-align:center; margin-bottom:10px;">
         <a class="statussvar" style="text-decoration:none;"href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">Svar</a><br/>
