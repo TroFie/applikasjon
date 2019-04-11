@@ -94,8 +94,8 @@ session_start();
 <form action="#" method="post" style="margin-left:500px;">
 <select name="Campus">
 <?php
-$options = array("Alle","Drammen","Kongsberg","Porsgrunn","Bø","Notodden","Vestfold");
-$selected_val = "Alle";
+$options = array("Velg","Alle","Drammen","Kongsberg","Porsgrunn","Bø","Notodden","Vestfold");
+$selected_val = "Velg";
 foreach($options as $option){
     if($selected_val==$option){
         echo '<option value="'.$option.'" selected="selected">'.ucfirst($option).'</option>';
@@ -172,7 +172,7 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
   <?php
       require 'connect.php';
       $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers ORDER BY id DESC");
-      if($selected_val!="Alle"){
+      if($selected_val!="Velg"){
       $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers AND users.campusUsers='$selected_val' ORDER BY id DESC");
       }
       while($rows=mysqli_fetch_array($getQuery)) {
