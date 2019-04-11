@@ -178,10 +178,10 @@ session_start();
         $bruker_reply = $row['uidUsers_melding'];
         ?>
        <?php if($idbruker==$id AND $idmelding==$id_melding ){ ?>
-        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:10px; margin-top:5px;"><?php echo $bruker_reply; ?> svarte :<?php echo $id2; ?></p>
+        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:30px; margin-top:5px;"><?php echo $bruker_reply; ?> svarte :<?php echo $id2; ?></p>
         <?php }} ?>
         <br/> 
-        <a href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">REPLY</a><br/>
+        <a class="statussvar" style="margin-left:0px; text-decoration: none;"href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">Svar</a><br/>
         <br/>
         <!-- <button class="statussvar" onclick="document.getElementById('svar-wrapper').style.display='block'" style="width: 100px; margin-top: 50px;">Svar</button> -->
       </div>

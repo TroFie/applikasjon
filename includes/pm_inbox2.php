@@ -184,9 +184,9 @@ if(isset($_POST['deleteBtn'])){
 }
 ?> 
 </form>
-<div id="replyBox" style="display:none; width:680px; height:264px; background-color:#005900; background-repeat:repeat; border:#333 1px solid; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
-<div align="right"><a href="javascript:toggleReplyBox('close')"><font color="#00CCFF"><strong>CLOSE</strong></font></a></div>
-<h2>Replying to <span style="color:#ABE3FE;" id="recipientShow"></span></h2>  
+<div id="replyBox" style="display:none; width:680px; height:264px; background-color:rgb(62, 136, 73); background-repeat:repeat; border-radius:5px; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
+<div align="right"><a href="javascript:toggleReplyBox('close')"><font color="white"><strong>CLOSE</strong></font></a></div>
+<h2>Replying to <span style="color:white;" id="recipientShow"></span></h2>  
 Subject: <strong><span style="color:#ABE3FE;" id="subjectShow"></span></strong><br>
 <form action="javascript:processReply();" name="replyForm" id="replyForm" method="post">
     <textarea id="pmTextArea"  rows="8" style="width:98%;"></textarea>
