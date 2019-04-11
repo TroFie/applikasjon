@@ -26,7 +26,6 @@
 			exit();
 	  		}
 	 		 ?> 
-		<div class="container">
 	 	 <nav class="navbar">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
