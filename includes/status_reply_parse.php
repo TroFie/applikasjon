@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'dbh.inc.php';
-
+$username = $_SESSION['userUid'];
 /*
 $thisWipit = $_POST['thisWipit'];
 $sessWipit = $_SESSION['wipit'];
@@ -57,7 +57,7 @@ if(isset($_POST['melding'])){
 	} else {
 		
 
-		$sql = "INSERT INTO melding_reply(tittel, melding_reply, uidUsers_melding, id_user, id_melding) VALUES ('we', '$melding', 'Andreas', '$idx', '$idmelding')";
+		$sql = "INSERT INTO melding_reply(tittel, melding_reply, uidUsers_melding, id_user, id_melding) VALUES ('we', '$melding', '$username', '$idx', '$idmelding')";
 		if(!mysqli_query($conn, $sql)){
 			echo '<strong> Missing data </strong>';
 			exit();
