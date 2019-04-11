@@ -4,30 +4,29 @@ session_start();
 ?>
 <?php
 if(!isset($_SESSION['userUid'])){
-	echo "Session timed out";
-	exit();
+  echo "Session timed out";
+  exit();
 }
 $decryptedID = $_SESSION['userUid'];
 $id_array = explode("p3h9xfn8sq03hs2234", $decryptedID);
 $my_id = $id_array[0];
-
-
 $thisRandNum = rand(99999999, 999999999);
 $_SESSION['wipit'] = $thisRandNum;
 ?>
 <?php
 if(isset($_POST['deleteBtn'])){
-	require 'dbh.inc.php';
-	foreach ($_POST as $key => $value) {
-		$value = urlencode(stripslashes($value));
-		if ($key != "deleteBtn") {
-			$sql = mysqli_query($conn, "UPDATE private_messages SET opened='1', recipientDelete='1' WHERE id='$value' LIMIT 1");
-			
-		}
-	}
-	header("location: pm_inbox2.php");
+  require 'dbh.inc.php';
+  foreach ($_POST as $key => $value) {
+    $value = urlencode(stripslashes($value));
+    if ($key != "deleteBtn") {
+      $sql = mysqli_query($conn, "UPDATE private_messages SET opened='1', recipientDelete='1' WHERE id='$value' LIMIT 1");
+      
+    }
+  }
+  header("location: pm_inbox2.php");
 }
 ?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -37,7 +36,6 @@ if(isset($_POST['deleteBtn'])){
         <link rel="stylesheet" type="text/css" href="../style.css" />
 
 <script language="javascript" type="text/javascript">
-
     function toggleChecks(field){
     if (document.myform.toggleAll.checked==true){
       for (i = 0; i<10000; i++) {
@@ -51,28 +49,28 @@ if(isset($_POST['deleteBtn'])){
     }
     }
     $(document).ready(function(){
-  	$(".toggle").click(function(){
-  		if($(this).next().is(":hidden")){
-  			$(".hiddenDiv").hide();
-  			$(this).next().slideDown("fast");
-  		}else{
-  			$(this).next().hide();
-  		}
-  		});
-  		});
+    $(".toggle").click(function(){
+      if($(this).next().is(":hidden")){
+        $(".hiddenDiv").hide();
+        $(this).next().slideDown("fast");
+      }else{
+        $(this).next().hide();
+      }
+      });
+      });
     function toggleReplyBox(subject,senderid,recID,replyWipit){
-  	$("#subjectShow").text(subject);
-  	$("#recipientShow").text(recID);
-  	document.replyForm.pmSubject.value = subject;
-  	document.replyForm.pm_sender_id.value = senderid;
+    $("#subjectShow").text(subject);
+    $("#recipientShow").text(recID);
+    document.replyForm.pmSubject.value = subject;
+    document.replyForm.pm_sender_id.value = senderid;
     document.replyForm.pm_rec_id.value = recID;
-  	document.replyForm.replyBtn.value = "Send reply to " + recID;
-  	document.replyForm.pmWipit.value = replyWipit;
-  	if($('#replyBox').is(":hidden")){
-  		$('#replyBox').fadeIn(1000);
-  	}else{
-  		$('#replyBox').hide();
-  	}
+    document.replyForm.replyBtn.value = "Send reply to " + recID;
+    document.replyForm.pmWipit.value = replyWipit;
+    if($('#replyBox').is(":hidden")){
+      $('#replyBox').fadeIn(1000);
+    }else{
+      $('#replyBox').hide();
+    }
   }
   function processReply(){
   var pmSubject = $("#pmSubject");
@@ -85,18 +83,17 @@ if(isset($_POST['deleteBtn'])){
   $("#PMStatus").text('Please type a message').show();
 } else {
   $.post(url,{subject: pmSubject.val(), message: pmTextArea.val(), senderID: senderid.val(), rcpntID: recID.val(), thisWipit: pm_wipit.val()}, function(data){
-  	document.replyForm.pmTextArea.value="";
+    document.replyForm.pmTextArea.value="";
     $('#replyBox').slideUp("fast");
     $("#PMFinal").html("&nbsp; &nbsp;"+data).show().fadeOut(8000);
   });
 }
 }
   function markAsRead(msgID, ownerID){
-  	$.post("markAsRead.php",{messageid:msgID, ownerid:ownerID}, function(data){
-  		$('#subj_line_'+msgID).addClass('msgRead');
-  	});
+    $.post("markAsRead.php",{messageid:msgID, ownerid:ownerID}, function(data){
+      $('#subj_line_'+msgID).addClass('msgRead');
+    });
   }
-
 </script>
 <style type="text/css">
 .hiddenDiv{display:none}
@@ -124,7 +121,7 @@ if(isset($_POST['deleteBtn'])){
   </header>
 
 <body>
-<table width="920" style="background-color:#F2F2F2; margin-left:500px; margin-top:100px"; border="0" align="center" cellpadding="0" cellspacing="0">
+<table width="80%" style="background-color:#F2F2F2; margin-left: 10% ; margin-top:100px"; border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="732" valign="top">
     <h2 style="margin-left: 24px;">Your Private Messages</h2>
