@@ -17,20 +17,67 @@ $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'"
     }
 ?>
 
+<?php
+ $_SESSION["idUsers"];
+require 'connect.php';
 
+if (count($_POST) > 0) {
+    $result = mysqli_query($conn, "SELECT *from users WHERE idUsers='" . $_SESSION["idUsers"] . "'");
+    $row = mysqli_fetch_array($result);
+    if ($_POST["newPassword"] == $_POST["confirmPassword"]) {
+      mysqli_query($conn, "UPDATE users set pwdUsers='" . password_hash($_POST["newPassword"], PASSWORD_DEFAULT) . "' WHERE idUsers='" . $_SESSION["idUsers"] . "'");
+        $message = "Passord byttet";
+    } else
+        $message = "Noe gikk falt";
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Log In</title>
+  <title><?php echo $username ?> sin profil</title>
   <link rel="stylesheet" type="text/css" href="">
   <link rel="stylesheet" href="style.css">
+
+
+    <script>
+    function validatePassword() {
+    var newPassword,confirmPassword,output = true;
+
+  
+    newPassword = document.frmChange.newPassword;
+    confirmPassword = document.frmChange.confirmPassword;
+
+   
+    else if(!newPassword.value) {
+    newPassword.focus();
+    document.getElementById("newPassword").innerHTML = "Må fylles";
+    output = false;
+    }
+    else if(!confirmPassword.value) {
+    confirmPassword.focus();
+    document.getElementById("confirmPassword").innerHTML = "Må fylles";
+    output = false;
+    }
+    if(newPassword.value != confirmPassword.value) {
+    newPassword.value="";
+    confirmPassword.value="";
+    newPassword.focus();
+    document.getElementById("confirmPassword").innerHTML = "Ikke like";
+    output = false;
+    }   
+    return output;
+    }
+    </script>
+
 </head>
 
 <body>
+<form name="frmChange" method="post" action="" onSubmit="return validatePassword()">
 <div class="main">
-
+<div class="message"><?php if(isset($message)) { echo $message; } ?></div>
   <div class="content">
       <h1><?php echo $username ?> sin profil</h1>
       <img class="profile-pic" src="bilder/1.png" width="129" height="129" alt="" />
@@ -69,18 +116,16 @@ $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'"
                                      
                           </div>
                             <div class="tab-1 resp-tab-content">
-     
+
+
                           <h3>Nytt passord</h3>
-                          <form>
-                            <input type="password" class="input-text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"> 
-                          </form>
+                          <input type="password" name="newPassword" class="input-text"/><span id="newPassword" class="required"></span>
 
                           <h3>Confirm passord</h3>
-                          <form>
-                            <input type="password" class="input-text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"> 
-                          </form>
+                         <input type="password" name="confirmPassword" class="input-text"/><span id="confirmPassword" class="required"></span>
                         </div>  
-                            <input type="submit" name="update-profile" class="update-profile" value="Oppdater">
+                       
+                            <td colspan="2"><input type="submit" name="submit" value="Submit" class="update-profile"></td>
                         </div>
                       
                       </div>            
@@ -88,3 +133,5 @@ $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'"
 
                         </body>
                         </html>
+
+
