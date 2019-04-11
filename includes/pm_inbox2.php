@@ -182,10 +182,10 @@ if(isset($_POST['deleteBtn'])){
 }
 ?> 
 </form>
-<div id="replyBox" style="display:none; width:680px; height:280px; background-color:#fefefe; background-repeat:repeat; border-radius:5px; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
+<div id="replyBox" style="box-shadow: 0px 0px 10px black; display:none; width:680px; height:280px; background-color:#fefefe; background-repeat:repeat; border-radius:5px; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
 <div align="right"><a href="javascript:toggleReplyBox('close')"><font color="red"><strong style="font-size:18px; float:right;">Lukk</strong></font></a></div>
 <h2 style="font-size:25px; font-family:Arial;">Kommentar <span style="color:black;" id="recipientShow"></span></h2>  
-<font style="color:black; font-family:Arial;">Kommenterer på: </font><span style="color:#black;" id="subjectShow"></span></strong><br>
+<font style="color:black; font-family:Arial;">Kommenterer på: </font><strong><span style="color:black;" id="subjectShow"></span></strong><br>
 <form action="javascript:processReply();" name="replyForm" id="replyForm" method="post">
     <textarea id="pmTextArea"  rows="8" style="width:98%;"></textarea>
     <input type="hidden" id="pmSubject">
