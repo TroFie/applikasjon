@@ -106,7 +106,7 @@ session_start();
   </header>
 
 <form action="#" method="post"  >
-<input type="submit" name="campus" class="logoutbutton" value="Velg campus-feed" style= "margin-left: 10%; margin-bottom: 2px"/>
+<input type="submit" name="campus" class="logoutbutton" value="Velg campus-feed" style= "margin-left: 10%; margin-bottom: 5px; margin-top: 7px;"/>
 <select name="Campus">
 <?php
 $options = array("Velg","Alle","Drammen","Kongsberg","Porsgrunn","Bø","Notodden","Vestfold");
