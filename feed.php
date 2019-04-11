@@ -53,7 +53,7 @@ session_start();
     document.replyForm.pm_sender_id.value = senderid;
     document.replyForm.pm_rec_id.value = recID;
     document.replyForm.pm_meld_id.value = idmelding;
-    document.replyForm.replyBtn.value = "Send reply to " + senderid;
+    document.replyForm.replyBtn.value = "Send kommentar " + senderid;
     if($('#replyBox').is(":hidden")){
       $('#replyBox').fadeIn(1000);
     }else{
@@ -106,7 +106,7 @@ session_start();
       
   </header>
   
-<form action="#" method="post" style="margin-left:500px;">
+<form action="#" method="post" style="margin-left:189px; margin-top:10px; position:relative;">
 <select name="Campus">
 <?php
 $options = array("Velg","Alle","Drammen","Kongsberg","Porsgrunn","Bø","Notodden","Vestfold");
@@ -120,7 +120,7 @@ foreach($options as $option){
 }
 ?>
 </select>
-<input type="submit" name="campus" value="Velg campus-feed"/>
+<button type="submit" name="campus">Velg Campus-feed</button>
 </form>
 <?php
 if(isset($_POST['campus'])){
@@ -128,7 +128,7 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
 }
 ?>
   <!-- Ny status -->
-    <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px;  margin-top: 40px; margin-left: 10.1%;">Lag Ny Status</button>
+    <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px; margin-left: 10.1%;">Lag Ny Status</button>
   
       <div id="modal-wrapper" class="modal">
 
@@ -168,7 +168,7 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         
         </form>
         <script>
-        var svar = document.getElementById('svar-wrapper');
+        var svar = document.getElementById('replyBox');
         var modal = document.getElementById('modal-wrapper');
         window.onclick = closeWindow;
         
@@ -238,10 +238,10 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
       ?>
 </div>
 
-<div id="replyBox" style="display:none; width:680px; height:264px; background-color:#005900; background-repeat:repeat; border:#333 1px solid; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
-<div align="right"><a href="javascript:toggleReplyBox('close')"><font color="#00CCFF"><strong>CLOSE</strong></font></a></div>
-<h2>Replying to <span style="color:#ABE3FE;" id="recipientShow"></span></h2>  
-Subject: <strong><span style="color:#ABE3FE;" id="subjectShow"></span></strong><br>
+<div id="replyBox" style="display:none; width:680px; height:280px; background-color:#fefefe; background-repeat:repeat; border-radius:5px; 1px solid; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
+<div align="right"><a href="javascript:toggleReplyBox('close')"><font color="red"><strong style="font-size:18px; float:right;">Lukk</strong></font></a></div>
+<h2 style="font-size:25px; font-family:Arial;">Kommentar <span style="color:black;" id="recipientShow"></span></h2>  
+<font style="color:black; font-family:Arial;">Kommenterer på: </font><strong><span style="color:black;" id="subjectShow"></span></strong><br>
 <form action="javascript:processReply();" name="replyForm" id="replyForm" method="post">
     <textarea id="pmTextArea"  rows="8" style="width:98%;"></textarea>
     <input type="hidden" id="pmSubject">
@@ -250,7 +250,7 @@ Subject: <strong><span style="color:#ABE3FE;" id="subjectShow"></span></strong><
     <input type="hidden" id="pm_meld_id">
     <span id="PMStatus" style="color:#F00;"></span>
     <br/>
-    <input name="replyBtn" type="button" onclick="javascript:processReply()"/> &nbsp;&nbsp;&nbsp;
+    <input class="statussvar" style="width:auto; margin-left:220px; margin-top:12px;" name="replyBtn" type="button" onclick="javascript:processReply()"/> &nbsp;&nbsp;&nbsp;
     <div id="PMStatus" style="color:F00; font-size:14px; font-weight:700;">&nbsp;</div>
  </form>
 </div>

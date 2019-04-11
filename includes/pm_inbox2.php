@@ -185,10 +185,10 @@ if(isset($_POST['deleteBtn'])){
 }
 ?> 
 </form>
-<div id="replyBox" style="display:none; width:680px; height:264px; background-color:rgb(62, 136, 73); background-repeat:repeat; border-radius:5px; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
-<div align="right"><a href="javascript:toggleReplyBox('close')"><font color="white"><strong>CLOSE</strong></font></a></div>
-<h2>Replying to <span style="color:white;" id="recipientShow"></span></h2>  
-Subject: <strong><span style="color:#ABE3FE;" id="subjectShow"></span></strong><br>
+<div id="replyBox" style="display:none; width:680px; height:280px; background-color:#fefefe; background-repeat:repeat; border-radius:5px; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
+<div align="right"><a href="javascript:toggleReplyBox('close')"><font color="red"><strong style="font-size:18px; float:right;">Lukk</strong></font></a></div>
+<h2 style="font-size:25px; font-family:Arial;">Kommentar <span style="color:black;" id="recipientShow"></span></h2>  
+<font style="color:black; font-family:Arial;">Kommenterer på: </font><span style="color:#black;" id="subjectShow"></span></strong><br>
 <form action="javascript:processReply();" name="replyForm" id="replyForm" method="post">
     <textarea id="pmTextArea"  rows="8" style="width:98%;"></textarea>
     <input type="hidden" id="pmSubject">
@@ -197,7 +197,7 @@ Subject: <strong><span style="color:#ABE3FE;" id="subjectShow"></span></strong><
     <input type="hidden" id="pmWipit">
     <span id="PMStatus" style="color:#F00;"></span>
     <br/>
-    <input name="replyBtn" type="button" onclick="javascript:processReply()"/> &nbsp;&nbsp;&nbsp;
+    <input class="statussvar" style="width:auto; margin-left:220px; margin-top:20px;" name="replyBtn" type="button" onclick="javascript:processReply()"/> &nbsp;&nbsp;&nbsp;
     <div id="PMStatus" style="color:F00; font-size:14px; font-weight:700;">&nbsp;</div>
  </form>
 </div>
