@@ -37,7 +37,7 @@ p{
 header{ 
 	background-color: rgb(62, 136, 73);
 	min-height: 120px;
-	border-bottom: #185f1e 2px solid;
+	border-bottom: #185f1e 3px solid;
 }
 
 header li{
@@ -187,13 +187,24 @@ header #branding h1{
 	background-color: #4CAF50;
 	color: white;
 	padding: 14px 20px;
-	margin: 8px 28px;
 	border: none;
 	cursor: pointer;
-	width: 90%;
+	width: 20%;
 	font-size:20px;
 	margin-bottom:15px;
 }
+
+.statusbutton1 {
+
+	color: white;
+
+	border: none;
+	cursor: pointer;
+	width: 20%;
+	font-size:20px;
+	margin-bottom:15px;
+}
+
 
 button:hover {
 	opacity: 0.8;
@@ -315,11 +326,12 @@ height:200px;
 Logout stufffff
 */
 .logout-submit {
-  font-family: "Roboto", sans-serif;
+
+   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
  	float: right;
-  margin-bottom:20px;
+  margin-bottom:10px;
   background: #4CAF50;
   /* width: 5%; */
   border: 0;
@@ -328,7 +340,7 @@ Logout stufffff
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .logout-submit:hover {
@@ -535,11 +547,6 @@ Minside.php stuff
 	padding: 10px 15px;
 }
 
-.profile-pic {
-	display:block;
-	margin:0 auto;
-	margin-bottom: 10px;
-}
 
 .profile-content {
     padding: 9px 12px;
@@ -603,6 +610,21 @@ Minside.php stuff
   text-shadow: 0 1px rgba(0,0,0,0.3);
   background: #43A047;
 }
+
+.profile-pic {
+	display:block;
+	margin:0 auto;
+	margin-bottom: 10px;
+}
+
+.velg-knapp {
+	 background: #43A047;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size:20px;
+}
+
 @media only screen and (max-device-width: 480px) {
     .content {
        width: 80%;
