@@ -162,12 +162,13 @@ session_start();
         
         ?>
         <div class="shadowbox">
-        <div class="post-date">
+        <div class="post-date"><br/>
           <strong style="margin-left:5px">Postet av:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $username </a>";?>
 
           <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=campus/$campus.php> $campus </a>";?>  
           <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span></div>
         <div class="post">
+
         <h3 style="color: rgb(223, 223, 223); text-align: left; margin-left:10px;"><?php echo $tittel; ?><br/></h3>
         
         <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:10px; margin-top:5px;"><?php echo $melding; ?></p>
@@ -181,7 +182,11 @@ session_start();
         <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:30px; margin-top:5px;"><?php echo $bruker_reply; ?> svarte :<?php echo $id2; ?></p>
         <?php }} ?>
         <br/> 
+
         <a class="statussvar" style="margin-left:0px; text-decoration: none;"href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">Svar</a><br/>
+
+        
+
         <br/>
         <!-- <button class="statussvar" onclick="document.getElementById('svar-wrapper').style.display='block'" style="width: 100px; margin-top: 50px;">Svar</button> -->
       </div>
