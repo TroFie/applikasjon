@@ -44,9 +44,7 @@ session_start();
       <nav class="navbar">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
-              <li><a href=#>            Kontakt    </a></li> 
               <li><a href=minSide.php>  Min Side     </a></li> 
-              <li><a href=#>            FAQ        </a></li>
               <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
               <li><a href=campus.php>            Campus        </a></li>
           </ul>
@@ -63,7 +61,7 @@ session_start();
         $campus = $rows['campusUsers'];
         ?>
         <table width="920" style="background-color:#F2F2F2;"; border="0" align="center" cellpadding="0" cellspacing="0">
-        <h2 style="margin-left:24px;"><strong style="margin-left:5px"></strong> <?php echo "<a style=\"text-decoration:none; color: black;\"href=campus/$campus.php> $campus </a>";?> </h2>
+        <h2 style="margin-left:24px;"> <?php echo "<a style=\"text-decoration:none; color: black;\"href=campus/$campus.php> $campus </a>";?> </h2>
            
         
           

@@ -110,12 +110,13 @@ if(isset($_POST['deleteBtn'])){
     <div class="container">
     <img src="../bilder/yippee.png" alt="">
     </div>
+    <form class="header" action="logout.inc.php" method="post">
+     <button type="submit" class="logout-submit" name="logout-submit">Logout</button>
+        </form>
       <nav class="navbar">
           <ul> 
               <li><a href=../feed.php>     Feed       </a></li> 
-              <li><a href=#>            Kontakt    </a></li> 
               <li><a href=../minSide.php>  Min Side     </a></li> 
-              <li><a href=#>            FAQ        </a></li>
               <li><a href=pm_inbox2.php>            Inbox        </a></li>
               <li><a href=../campus.php>            Campus        </a></li>
           </ul>

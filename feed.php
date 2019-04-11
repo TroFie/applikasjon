@@ -98,9 +98,7 @@ session_start();
       <nav class="navbar">
           <ul> 
               <li><a href=feed.php>     Feed       </a></li> 
-              <li><a href=#>            Kontakt    </a></li> 
               <li><a href=minSide.php>  Min Side     </a></li> 
-              <li><a href=#>            FAQ        </a></li>
               <li><a href=includes/pm_inbox2.php>            Inbox        </a></li>
               <li><a href=campus.php>            Campus        </a></li>
           </ul>
