@@ -74,10 +74,11 @@ $campus=$row['campusUsers'];
 <div class="main">
 
   <div class="content">
-      <h1><?php echo $uid ?> sin profil</h1>
+      <h1 style="padding-right:0px; margin-right:25%;"><?php echo $uid ?> sin profil</h1>
       
 
         <div class="profile-content">
+        <br><br>
            <h3>Brukernavn</h3>  
             <?php echo $uid ?>
                           

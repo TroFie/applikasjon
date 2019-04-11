@@ -36,6 +36,17 @@ session_start();
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script language="javascript" type="text/javascript">
 
+    $(document).ready(function(){
+    $(".toggle").click(function(){
+      if($(this).next().is(":hidden")){
+        $(".replies").hide();
+        $(this).next().slideDown("fast");
+      }else{
+        $(this).next().hide();
+        }
+      });
+    });
+    
     function toggleReplyBox(tittel,senderid,recID,idmelding){
     $("#subjectShow").text(tittel);
     document.replyForm.pmSubject.value = tittel;
@@ -67,6 +78,12 @@ session_start();
 }
 }
 </script>
+<style type="text/css">
+.hiddenDiv{display:none}
+.replyBoxes{display:none;border:#999 1px solid;background-color:#CCC;margin-left:100px;margin-right:100px;padding:12px;}
+.msgDefault{font-weight:bold;}
+.msgRead{font-weight:100;color:#666;}
+</style>
 </head>
 
 <body>  
@@ -189,16 +206,20 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         
         ?>
         <div class="shadowbox">
-        <div class="post-date"><br/>
+        <div class="post-date">
           <strong style="margin-left:5px">Postet av:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $username </a>";?>
 
           <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=campus/$campus.php> $campus </a>";?>  
-          <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span></div>
+          <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span>
+          </div>
         <div class="post">
 
         <h3 style="color: rgb(223, 223, 223); text-align: left; margin-left:10px;"><?php echo $tittel; ?><br/></h3>
         
         <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:10px; margin-top:5px;"><?php echo $melding; ?></p>
+        <button class="toggle statusbutton" style="width:100px; margin-left:10px; padding: 3px 10px; font-size:15px;">Vis</button>
+
+      <div class="replies">
        <?php while($row=mysqli_fetch_array($sql)) {
         $id2 = $row['melding_reply'];
         $idbruker = $row['id_user'];
@@ -206,21 +227,16 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         $bruker_reply = $row['uidUsers_melding'];
         ?>
        <?php if($idbruker==$id AND $idmelding==$id_melding ){ ?>
-        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:30px; margin-top:5px;"><?php echo $bruker_reply; ?> svarte :<?php echo $id2; ?></p>
-        <?php }} ?>
-        <br/> 
-
-        <a class="statussvar" style="margin-left:0px; text-decoration: none;"href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">Svar</a><br/>
-
-        
-
-        <br/>
-        <!-- <button class="statussvar" onclick="document.getElementById('svar-wrapper').style.display='block'" style="width: 100px; margin-top: 50px;">Svar</button> -->
+        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left;"><?php echo $bruker_reply; ?> svarte: <?php echo $id2; ?></p>
+        <?php }} ?> 
+        <div style="text-align:center; margin-bottom:10px;">
+        <a class="statussvar" style="text-decoration:none;"href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">Svar</a><br/>
+       </div>
+        </div>
       </div>
     </div>
       <?php
-    
-      }
+        }
       ?>
 </div>
 
