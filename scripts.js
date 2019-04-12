@@ -20,7 +20,7 @@ $(document).ready(function(){
 			}
 
 			$.ajax({
-				url: 'index.php',
+				url: 'feed.php',
 				type: 'post',
 				data: {
 					'action': action,
