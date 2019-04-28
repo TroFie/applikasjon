@@ -21,6 +21,7 @@ session_start();
   
 ?>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -32,15 +33,14 @@ session_start();
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script language="javascript" type="text/javascript">
-    $(document).ready(function(){
-    $(".toggle").click(function(){
+    $(document).on('click', '.toggle', function(){
       if($(this).next().is(":hidden")){
         $(".replies").hide();
         $(this).next().slideDown("fast");
       }else{
         $(this).next().hide();
         }
-      });
+      
     });
     
     function toggleReplyBox(tittel,senderid,recID,idmelding){
@@ -73,6 +73,27 @@ session_start();
   });
 }
 }
+  function showUser(str) {
+    if (str == "") {
+        document.getElementById("main").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("main").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "getfeed.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
 </script>
 <style type="text/css">
 .hiddenDiv{display:none}
@@ -101,30 +122,6 @@ session_start();
       </nav>
   </header>
 
-<form action="#" method="post"  >
-<input type="submit" name="campus" class="logoutbutton" value="Velg campus-feed" style= "margin-left: 10%; margin-bottom: 5px; margin-top: 7px;"/>
-<select name="Campus">
-<?php
-$options = array("Velg","Alle","Drammen","Kongsberg","Porsgrunn","Bø","Notodden","Vestfold");
-$selected_val = "Velg";
-foreach($options as $option){
-    if($selected_val==$option){
-        echo '<option value="'.$option.'" selected="selected">'.ucfirst($option).'</option>';
-    }else{
-        echo '<option value="'.$option.'">'.ucfirst($option).'</option>';
-    }
-}
-?>
-</select>
-
-</form>
-<?php
-if(isset($_POST['campus'])){
-$selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
-}
-?>
-
-
 
   <!-- Ny status -->
     <button class="statusbutton" onclick="document.getElementById('modal-wrapper').style.display='block'" style="width: 200px; margin-left: 10%; ">Lag Ny Status</button>
@@ -149,6 +146,20 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
         
         </form>
       </div>
+
+      <form>
+      <select name="users" onchange="showUser(this.value)" style="margin-left: 200px;">
+      <option value="">Velg Campus:</option>
+      <option value="Notodden">Notodden</option>
+      <option value="Bø">Bø</option>
+      <option value="Drammen">Drammen</option>
+      <option value="Kongsberg">Kongsberg</option>
+      <option value="Rauland">Rauland</option>
+      <option value="Vestfold">Vestfold</option>
+      <option value="Porsgrunn">Porsgrunn</option>
+      </select>
+      </form>
+      <br>
 
       <!-- Svar funksjon -->
         <div id="svar-wrapper" class="svar">
@@ -183,68 +194,7 @@ $selected_val = $_POST['Campus'];  // Storing Selected Value In Variable
       </div>
       
 <div id="main">
-  <?php
-      require 'connect.php';
-      $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers ORDER BY id DESC");
-      if($selected_val!="Velg"){
-      $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers AND users.campusUsers='$selected_val' ORDER BY id DESC");
-      }if($selected_val=="Alle"){
-        $getQuery = mysqli_query($conn, "SELECT * FROM melding, users WHERE users.uidUsers=melding.uidUsers ORDER BY id DESC");
-      }
-      while($rows=mysqli_fetch_array($getQuery)) {
-        $id = $rows['idUsers'];
-        $idmelding = $rows['id'];
-        $tittel = $rows['tittel'];
-        $melding = $rows['melding'];
-        $username = $rows['uidUsers'];
-        $post_time = $rows['post_time'];
-        $campus = $rows['campusUsers'];
-        $sql = mysqli_query($conn, "SELECT * FROM melding_reply INNER JOIN melding INNER JOIN users ON melding_reply.id_melding=melding.id AND melding_reply.id_user=users.idUsers");
-        
-        ?>
-        <div class="shadowbox">
-                    <!-- Like button -->
-
-          <div class="post-info">
-          <i class="fa fa-thumbs-o-up like-btn" data-id="<?php echo $melding['id'] ?>"> </i>
-
-          <i class="fa fa-thumbs-o-down dislike-btn" data-id="<?php echo $melding['id'] ?>"> </i>
-          </div>
-
-
-        <div class="post-date">
-
-          <strong style="margin-left:5px">Postet av:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=bruker.php?uid=$username> $username </a>";?>
-
-          <strong style="margin-left:5px">Campus:</strong> <?php echo "<a style=\"text-decoration:none; color: white;\" href=campus/$campus.php> $campus </a>";?>
-          <span> <p style="font-style:italic; margin-left:5px"><?php echo date("j-M-Y g:ia", strtotime($post_time)) ?> </p></span>  
-          </div>
-        <div class="post">
-
-        <h3 style="color: rgb(223, 223, 223); text-align: left; margin-left:10px;"><?php echo $tittel; ?><br/></h3>
-        
-        <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left; margin-left:10px; margin-top:5px;"><?php echo $melding; ?></p>
-        <button class="toggle statusbutton" style="width:100px; margin-left:10px; padding: 3px 10px; font-size:15px;">Vis</button>
-
-      <div class="replies">
-       <?php while($row=mysqli_fetch_array($sql)) {
-        $id2 = $row['melding_reply'];
-        $idbruker = $row['id_user'];
-        $id_melding = $row['id_melding'];
-        $bruker_reply = $row['uidUsers_melding'];
-        ?>
-       <?php if($idbruker==$id AND $idmelding==$id_melding ){ ?>
-       <p style="color: rgb(223, 223, 223); font-size: 18px; text-align:left;"><?php echo $bruker_reply; ?> svarte: <?php echo $id2; ?><p style="border-bottom: rgb(68, 99, 73) 2px solid;"></p>
-        <?php }} ?> 
-        <div style="text-align:center; margin-bottom:10px;">
-        <a class="statussvar" style="text-decoration:none;"href="javascript:toggleReplyBox('<?php echo stripslashes($rows['tittel']);?>','<?php echo $username;?>','<?php echo $id;?>','<?php echo $idmelding;?>')">Svar</a><br/>
-       </div>
-        </div>
-      </div>
-    </div>
-      <?php
-        }
-      ?>
+  
 </div>
 
 <div id="replyBox" style="display:none; width:680px; height:264px; background-color:#005900; background-repeat:repeat; border:#333 1px solid; top:451px; left:600px; position:fixed; margin:auto; z-index:50; padding:20px; color:#FFF;">
