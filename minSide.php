@@ -10,6 +10,7 @@ require 'connect.php';
 $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'");
   while($rows=mysqli_fetch_array($getQuery))
     {
+    $brukerid=$rows['idUsers'];
     $username=$rows['uidUsers'];
     $email=$rows['emailUsers'];
     $gender=$rows['genderUsers'];
@@ -18,15 +19,13 @@ $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'"
 ?>
 
 <?php
- $_SESSION["idUsers"] = "38";
-  $idUsers = $_SESSION['idUsers'];
 require 'connect.php';
 
 if (count($_POST) > 0) {
-    $result = mysqli_query($conn, "SELECT *from users WHERE idUsers='" . $_SESSION["idUsers"] . "'");
+    $result = mysqli_query($conn, "SELECT idUsers from users WHERE uidUsers='$username'");
     $row = mysqli_fetch_array($result);
     if ($_POST["newPassword"] == $_POST["confirmPassword"]) {
-      mysqli_query($conn, "UPDATE users set pwdUsers='" . password_hash($_POST["newPassword"], PASSWORD_DEFAULT) . "' WHERE idUsers='" . $_SESSION["idUsers"] . "'");
+      mysqli_query($conn, "UPDATE users set pwdUsers='" . password_hash($_POST["newPassword"], PASSWORD_DEFAULT) . "' WHERE uidUsers='$username'");
         $message = "Passord byttet";
     } else
         $message = "Passordene matcher ikke";
