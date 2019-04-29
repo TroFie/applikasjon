@@ -2,44 +2,15 @@
 session_start();
 require 'dbh.inc.php';
 $username = $_SESSION['userUid'];
-/*
-$thisWipit = $_POST['thisWipit'];
 $sessWipit = $_SESSION['wipit'];
 
- if session for wipit is not set or if session id is not set 
+ 
 
 if(!isset($_SESSION['wipit']) || !isset($_SESSION['userUid'])){
 	echo '<strong> Session expired   </strong>';
 	exit();
 }
-else if($_SESSION['userUid']!=$_POST['senderID']){
-	echo '<strong> Forged submission </strong>';
-	exit();
-}
-else if($sessWipit != $thisWipit){
-	echo '<strong> Forged submission2 </strong>';
-	exit();
-}
-else if($thisWipit=="" || $sessWipit==""){
-	echo '<strong> Missing Data </strong>';
-	exit();
-} 
-require_once "../connect.php";
-$checkuserid = $_POST['senderID'];
-$prevent_dp = mysqli_query($conn, "SELECT id FROM private_messages WHERE from_id='$checkuserid' AND time_sent between subtime(now(),'0:0:20')and now()");
-$nr = mysqli_num_rows($prevent_dp);
-if($nr>0){
-	echo '<strong> Wait 20 seconds </strong>';
-	exit();
-}
 
-$sql = mysqli_query($conn, "SELECT id FROM private_messages WHERE from_id='$checkuserid' AND DATE(time_sent) = DATE(NOW()) LIMIT 40");
-$numRows = mysqli_num_rows($sql);
-if($numRows>30){
-	echo '<strong> 30 MSG per day </strong>';
-	exit();
-}
-*/
 if(isset($_POST['melding'])){
 	require_once "../connect.php";
 	$from = ($_POST['senderID']);
