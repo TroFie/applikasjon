@@ -124,7 +124,7 @@ if(isset($_POST['deleteBtn'])){
 <table width="80%" style="background-color:#F2F2F2; margin-left: 10% ; margin-top:100px"; border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="732" valign="top">
-    <h2 style="margin-left: 24px;">Your Private Messages</h2>
+    <h2 style="margin-left: 24px;">Dine private meldinger</h2>
 
     <form name="myform" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data">
       <table width="94%" border="0" align="center" cellpadding="4">

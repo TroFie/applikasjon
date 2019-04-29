@@ -28,7 +28,7 @@ if(isset($_POST['melding'])){
 	} else {
 		
 
-		$sql = "INSERT INTO melding_reply(tittel, melding_reply, uidUsers_melding, id_user, id_melding) VALUES ('we', '$melding', '$username', '$idx', '$idmelding')";
+		$sql = "INSERT INTO melding_reply(melding_reply, uidUsers_melding, id_user, id_melding) VALUES ('$melding', '$username', '$idx', '$idmelding')";
 		if(!mysqli_query($conn, $sql)){
 			echo '<strong> Missing data </strong>';
 			exit();
