@@ -1,4 +1,13 @@
 <?php
+if (isset($_SESSION['userId'])) {
+          echo '<form class="header" action="includes/logout.inc.php" method="post">
+          <button type="submit" class="logout-submit" name="logout-submit">Logout</button>
+        </form>';
+    }
+        else {
+            header("Location: http://localhost/gruppe06/index.php", true, 301);
+      exit();
+        }
 session_start();
   if(isset($_POST['publiser'])) {
     require 'connect.php';
