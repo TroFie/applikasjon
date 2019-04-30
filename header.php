@@ -7,7 +7,7 @@
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" type="text/css" href="">
+	<link rel="stylesheet" type="text/css" href="stylephp.php">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
