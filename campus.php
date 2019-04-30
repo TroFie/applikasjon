@@ -1,27 +1,3 @@
-<?php
-session_start();
-
-  if(isset($_POST['publiser'])) {
-
-    require 'connect.php';
-
-    $tittel = $_POST['tittel'];
-    $melding = $_POST['melding'];
-    $username = $_SESSION['userUid'];
-    
-    if($tittel && $melding) {
-      $sql = "INSERT INTO melding (tittel, melding, uidUsers) VALUES ('$tittel', '$melding', '$username')";
-      $stmt = mysqli_stmt_init($conn);
-      if (!mysqli_stmt_prepare($stmt, $sql)) {
-        exit();
-      } else {
-        mysqli_stmt_execute($stmt);
-        header("location: feed.php");
-				exit();
-      }
-    }
-  } 
-?>
 
 <!DOCTYPE html>
 <html>

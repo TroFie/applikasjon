@@ -9,30 +9,30 @@
 		<?php
 			if (isset($_GET['error'])) {
 				if ($_GET['error'] == "emptyfields") {
-					echo "<p>Fill in all fields..</p>";
+					echo "<p>Fyll inn alle felt</p>";
 				}
 				else if ($_GET['error'] == "invaliduidmail") {
-					echo "<p>Invalid username and email..</p>";
+					echo "<p>Ugyldig brukernavn og email..</p>";
 				}
 				else if ($_GET['error'] == "invaliduid") {
-					echo "<p>Invalid username..</p>";
+					echo "<p>Ugyldig brukernavn..</p>";
 				}
 				else if ($_GET['error'] == "invalidmail") {
-					echo "<p>Invalid e-mail..</p>";
+					echo "<p>Ugyldig e-mail..</p>";
 				}
 				else if ($_GET['error'] == "passwordcheck") {
-					echo "<p>Passwords not matching..</p>";
+					echo "<p>Passord matcher ikke..</p>";
 				}
 				else if ($_GET['error'] == "usertaken") {
-					echo "<p>Username already taken..</p>";
+					echo "<p>Brukernavn allerede i bruk..</p>";
 				}
 				else if ($_GET['error'] == "emailexist") {
-					echo "<p>Email exist..</p>";
+					echo "<p>Email allerede i bruk..</p>";
 				}
 			}
 			if(isset($_GET['signup'])){
 			 if ($_GET['signup'] == "success") {
-				echo '<p class="signupsuccess"> Signup successful..</p>';
+				echo '<p class="signupsuccess"> Registering vellykket..</p>';
 			}
 		}
 			
@@ -55,12 +55,8 @@
   		 <input type="radio" name="campus" value="Vestfold" > Vestfold<br>
   		 <input type="radio" name="campus" value="Notodden"> Notodden<br><br>
  		 
-		 <button type="submit" class="login-submit" name="signup-submit">Sign up</button>
+		 <button type="submit" class="login-submit" name="signup-submit">Lag bruker</button>
 		</form>
 	  </section>
 	 </div>
 	</main>
-
- <?php
-   require "footer.php";
-  ?>

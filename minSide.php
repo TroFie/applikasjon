@@ -4,7 +4,6 @@ require "header.php";
 <?php
  $username = $_SESSION['userUid'];
  
- 
 require 'connect.php';
 
 $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'");
@@ -19,8 +18,6 @@ $getQuery = mysqli_query($conn, "SELECT * FROM users WHERE uidUsers='$username'"
 ?>
 
 <?php
-require 'connect.php';
-
 if (count($_POST) > 0) {
     $result = mysqli_query($conn, "SELECT idUsers from users WHERE uidUsers='$username'");
     $row = mysqli_fetch_array($result);
@@ -121,7 +118,7 @@ if (count($_POST) > 0) {
                           <h3>Nytt passord</h3>
                           <input type="password" name="newPassword" class="input-text"/><span id="newPassword" class="required"></span>
 
-                          <h3>Confirm passord</h3>
+                          <h3>Bekreft passord</h3>
                          <input type="password" name="confirmPassword" class="input-text"/><span id="confirmPassword" class="required"></span>
                         </div>  
                        

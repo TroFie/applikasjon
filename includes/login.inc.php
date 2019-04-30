@@ -34,7 +34,7 @@ if (isset($_POST['login-submit'])) {
 					$_SESSION['userUid'] = $row['uidUsers'];
 
 
-					header("Location: /applikasjon/feed.php");
+					header("Location: /gruppe06/feed.php");
 
 
 					exit();

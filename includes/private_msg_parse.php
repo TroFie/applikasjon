@@ -6,7 +6,6 @@ require 'dbh.inc.php';
 $thisWipit = $_POST['thisWipit'];
 $sessWipit = $_SESSION['wipit'];
 
-/* if session for wipit is not set or if session id is not set */
 
 if(!isset($_SESSION['wipit']) || !isset($_SESSION['userUid'])){
 	echo '<strong> Session expired   </strong>';

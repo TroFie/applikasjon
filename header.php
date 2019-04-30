@@ -22,7 +22,7 @@
 	 		 	</form>';
 	  }
 	  		else {
-	  			  header("Location: http://localhost/applikasjon/index.php", true, 301);
+	  			  header("Location: http://localhost/gruppe06/index.php", true, 301);
 			exit();
 	  		}
 	 		 ?> 
